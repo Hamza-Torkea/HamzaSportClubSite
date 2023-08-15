@@ -1,0 +1,44 @@
+﻿@model SportClubSite.Models.MatchReport
+<body class="images-cropper-pro" style="background-image: url(/image/o10.jpg)">
+    <h3 style="color:darkgray">Are you sure you want to delete this?</h3>
+    <div>
+        <h4 style="color:darkgrey">MatchReport</h4>
+        <hr />
+        <dl class="dl-horizontal" style="color:darkgray">
+            <dt>
+                @Html.DisplayNameFor(model => model.MatchReport_id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MatchReport_id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Match_id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Match_id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Content)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>

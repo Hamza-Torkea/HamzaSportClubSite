@@ -1,0 +1,101 @@
+﻿@using SportClubSite.Models
+@model IEnumerable<SportClubSite.Models.Employee>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_NAVAftar.cshtml";
+}
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+
+    a {
+        direction: ltr;
+        float: right;
+        font-size: larger;
+        margin-bottom: 10px;
+        padding-right: 20px;
+    }
+</style>
+
+<hr />
+<hr />
+<hr />
+
+<h2><a class="btn btn-primary btn-xl " href="/Employee/add">Add</a>Employee Mangment</h2>
+
+@{
+    if (ViewData["All Employee"] != null)
+    {
+
+        <table>
+            <tr>
+                <th>Employee Name</th>
+                <th>Email</th>
+                <th>Adress</th>
+
+            </tr>
+            @foreach (Employee e in (IEnumerable<Employee>)ViewData["All Employee"])
+            {
+                <tr>
+
+
+                    <td>@e.EmployeeName</td>
+                    <td>@e.Email</td>
+                    <td>@e.Adress</td>
+
+                   
+                    <td class="btn btn-light ">
+                        <a href="@Url.Action("Edit", "Employee", new { id = e.Employee_id })">
+                            <i class="fa fa-folder"></i>
+                        </a>
+
+                    </td>
+
+                    <td class="btn btn-light ">
+                        <a href="@Url.Action("Delete", "Employee", new { id = e.Employee_id })">
+                            <i class="fa fa-trash"></i>
+                        </a>
+
+                    </td>
+                </tr>
+            }
+        </table>
+
+    }
+    else
+    {
+        <p>There are no teams to display in database.</p>
+    }
+
+
+
+}

@@ -1,0 +1,91 @@
+﻿@model SportClubSite.Models.Employee
+
+<meta name="viewport" content="width=device-width" />
+<title>Mangment</title>
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="~/Usertemp/css/roboto-font.css">
+<link rel="stylesheet" type="text/css" href="~/Usertemp/fonts/line-awesome/css/line-awesome.min.css">
+<!-- Jquery -->
+<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+<!-- Main Style Css -->
+<link rel="stylesheet" href="~/Usertemp/css/style.css" />
+
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <div class="page-content">
+        <div class="form-v2-content">
+
+            <div class="form-left">
+
+                <img src="~/image/cr7.jpg" alt="form" width="500" height="700">
+
+
+            </div>
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                 <h2 style="padding:60px">Addition Form</h2>
+                
+                    <div class="form-horizontal" style="padding:50px">
+                    <h4>Employee</h4>
+                    <hr />
+                    @Html.ValidationSummary(true)
+                        <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Employee_id, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Employee_id)
+                            @Html.ValidationMessageFor(model => model.Employee_id)
+                        </div>
+                    </div>
+                        <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EmployeeName, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EmployeeName)
+                            @Html.ValidationMessageFor(model => model.EmployeeName)
+                        </div>
+                    </div>
+                        <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email)
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                    </div>
+                        <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Adress, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Adress)
+                            @Html.ValidationMessageFor(model => model.Adress)
+                        </div>
+                    </div>
+                        <br />
+                    <div class="form-group">
+                        <br />
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+            }
+
+            </div>
+        </div>
+</body>

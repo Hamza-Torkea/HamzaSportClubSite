@@ -1,0 +1,159 @@
+﻿@model SportClubSite.Models.PredictModel
+@{
+    ViewBag.Title = "IndexPredict";
+    Layout = "~/Views/Shared/_NAVAftar.cshtml";
+}
+<hr />
+<hr />
+<hr />
+
+<style>
+    input[type=text] {
+        background-color: #3CBC8D;
+        color: white;
+    }
+</style>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="~/Usertemp/css/roboto-font.css">
+    <link rel="stylesheet" type="text/css" href="~/Usertemp/fonts/line-awesome/css/line-awesome.min.css">
+    <!-- Jquery -->
+    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="~/Usertemp/css/style.css" />
+
+</head>
+
+
+<body >
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <div class="page-content">
+        <div class="form-v2-content">
+
+            <div class="form-left">
+
+                <img src="~/image/ksd1.jpg" alt="form" width="600">
+
+
+            </div>
+
+    @using (Html.BeginForm())
+            {
+       @Html.AntiForgeryToken()
+
+          <h2 style="padding:60px">Prediction Form</h2>
+
+    <div class=" form-group" style="padding:10px">
+        <div class="col-md-10">
+            @Html.Label("Home Team:")
+            <br />
+            <input type="text" id="Home Team" />
+
+        </div>
+    </div>
+
+    <div class="form-group" style="padding:10px">
+        <div class="col-md-10">
+            @Html.Label("Away Team:")
+            <br />
+            <input type="text" id="Away Team" />
+
+        </div>
+    </div>
+            <br />
+
+    
+    <div class="form-group" style="padding: 10px">
+        <div class="col-md-10">
+            @Html.Label("TotalPointHomeTeam:")
+            <br />
+            <input type="text" id="TotalPointHomeTeam" />
+        </div>
+    </div>
+            <br />
+    <div class="form-group" style="padding: 10px">
+        <div class="col-md-10">
+            @Html.Label("TotalPointAwayTeam:")
+            <br />
+            <input type="text" id="TotalPointAwayTeam" />
+        </div>
+    </div>
+            <br />
+    <div class="form-group" style="padding: 10px">
+        <div class="col-md-10">
+            @Html.Label("RankHomeTeam:")
+            <br />
+            <input type="text" id="RankHomeTeam" />
+        </div>
+    </div>
+            <br />
+    <div class="form-group" style="padding: 10px">
+        <div class="col-md-10">
+            @Html.Label("RankAwayTeam:")
+            <br />
+            <input type="text" id="RankAwayTeam" />
+        </div>
+    </div>
+    <br />
+            <br />
+
+        
+            <input class="btn btn-danger"  type="button" id="btnGet"style="padding:5px" value="Predict" onclick="se()" />
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            <script type="text/javascript">
+                function se() {
+                    var a =    document.getElementById('TotalPointHomeTeam').value;
+                    var b = document.getElementById('TotalPointAwayTeam').value;
+                    var c = document.getElementById('RankHomeTeam').value;
+                    var d = document.getElementById('RankAwayTeam').value;
+
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+
+                    var raw = JSON.stringify({"TotalPointHomeTeam":a,"TotalPointAwayTeam":b,"RankHomeTeam":c,"RankAwayTeam":d});
+
+                    var requestOptions = {
+                        method: 'POST',
+                        headers: myHeaders,
+                        body: raw,
+                        redirect: 'follow'
+                    };
+
+                    fetch("http://127.0.0.1:88/predict", requestOptions)
+                      .then(response => response.json())
+                      .then(result => document.getElementById("txt").innerHTML = result.Prediction)
+                      .catch(error => console.log('error', error));
+
+                }
+            </script>
+            <h3 id="txt" style="color:gray"></h3>
+           
+            }
+         </div>
+        </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

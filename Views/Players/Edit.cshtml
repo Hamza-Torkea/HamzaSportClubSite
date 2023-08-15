@@ -1,0 +1,108 @@
+﻿@model SportClubSite.Models.Player
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="~/Usertemp/css/roboto-font.css">
+    <link rel="stylesheet" type="text/css" href="~/Usertemp/fonts/line-awesome/css/line-awesome.min.css">
+    <!-- Jquery -->
+    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="~/Usertemp/css/style.css" />
+
+</head>
+
+    
+    <body >
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <div class="page-content">
+        <div class="form-v2-content">
+
+            <div class="form-left">
+
+                <img src="~/image/sdf3.jpg" alt="form" width="500" height="600">
+
+
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <h2 style="padding:5px">Ediation Form</h2>
+
+                <div class="form-horizontal" style="padding:70px">
+
+                    <hr />
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.Player_id)
+
+                    <br />
+
+                    <div class="form-group" style="color:black" >
+                        @Html.LabelFor(model => model.TeamName, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TeamName)
+                            @Html.ValidationMessageFor(model => model.TeamName)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group" style="color:black">
+                        @Html.LabelFor(model => model.PlayerName, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PlayerName)
+                            @Html.ValidationMessageFor(model => model.PlayerName)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group" style="color:black">
+                        @Html.LabelFor(model => model.Long, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Long)
+                            @Html.ValidationMessageFor(model => model.Long)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group" style="color:black">
+                        @Html.LabelFor(model => model.Wieght, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Wieght)
+                            @Html.ValidationMessageFor(model => model.Wieght)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group" style="color:black">
+                        @Html.LabelFor(model => model.Price, new { @class = "control-label col-md-2 " })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Price)
+                            @Html.ValidationMessageFor(model => model.Price)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                        </div>
+                        <br />
+                    </div>
+                </div>
+
+
+                <div style="padding:40px">
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+            </div>
+        </div>
+</body>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SportClubSite.Models.MatchCard>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ViewPage.cshtml";
+}
+
+<hr />
+<hr />
+<hr />
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Success!</strong> @TempData["msg"]
+    </div>
+}
+
+@if (TempData["msg1"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Faliure</strong> @TempData["msg1"]
+    </div>
+}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<h2>Match Card</h2>
+
+<div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-10">
+        @if (TempData["total"] == null)
+        {
+
+            <h3>
+                Total Bill: 0 Ds
+            </h3>
+        }
+        else
+        {
+            <h3> Total Bill: @TempData["total"] Ds</h3>
+
+        }
+
+    </div>
+
+
+    <div class="col-lg-2 col-md-2 col-sm-2">
+        <h3 style="color:#808080; font-family:'Arial Rounded MT';text-align:center"> <span class="btn btn-info">@Html.ActionLink("Check Out", "CheckOut", "MatchCard")</span></h3>
+    </div>
+
+</div>
+
+<div class="row" style="margin-bottom:100px;">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-md-4" style="height:200px;margin-top:200px">
+
+                <img class="img img-responsive cimg" src="@Url.Content(item.ImagePath)" style=" height:100%;width:100% ;border-radius:50px 50px 50px 50px" />
+                <h3 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.HomeTeam  VS @item.AwayTeam <small>Price: @item.Price Ds</small></h3>
+                <h3 style="color:#808080; font-family:'Arial Rounded MT';text-align:center"><small>Studium: @item.Studium</small></h3>
+                <h3 style="color:#808080; font-family:'Arial Rounded MT';text-align:center"><small>Time:@item.time</small></h3>
+                 <h4 style="text-align:center">
+                    <a class="btn btn-success btn-sm" href="@Url.Action( "AddTocard", new { id = @item.MatchCard_id })"><i class="fa" style="font-size:24px">&#xf07a;</i>Add To Card</a>
+                 
+                  </h4>
+                <hr />
+            </div>
+
+        }
+    }
+</div>

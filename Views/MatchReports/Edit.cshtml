@@ -1,0 +1,78 @@
+﻿@model SportClubSite.Models.MatchReport
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="~/Usertemp/css/roboto-font.css">
+    <link rel="stylesheet" type="text/css" href="~/Usertemp/fonts/line-awesome/css/line-awesome.min.css">
+    <!-- Jquery -->
+    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="~/Usertemp/css/style.css" />
+
+</head>
+
+<body >
+
+    <div class="page-content">
+        <div class="form-v2-content">
+
+            <div class="form-left">
+
+                <img src="~/image/2.jpg" alt="form" width="600" height="600">
+
+
+            </div>
+
+
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <h2 style="padding:50px">Ediation Form</h2>
+                
+                <div class="form-horizontal" style="padding:60px">
+                    <h4>MatchReport</h4>
+                    <hr />
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.MatchReport_id)
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Match_id, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Match_id)
+                            @Html.ValidationMessageFor(model => model.Match_id)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Content, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Content)
+                            @Html.ValidationMessageFor(model => model.Content)
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-danger" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            
+            <div style="padding:60px">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+            
+            }
+
+            </div>
+        </div>
+</body>

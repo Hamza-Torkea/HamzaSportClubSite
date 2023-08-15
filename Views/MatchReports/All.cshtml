@@ -1,0 +1,82 @@
+﻿@using SportClubSite.Models
+@model IEnumerable<SportClubSite.Models.MatchReport>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_ViewPage.cshtml";
+}
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+    a {
+        direction: rtl;
+        float: left;
+        font-size: large;
+    }
+</style>
+
+<hr />
+<hr />
+<hr />
+
+<h2>AllMatchReports</h2>
+@{
+    if(ViewData["Reports"]!= null)
+    {
+        <table>
+
+            <tr>
+
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Result</th>
+                <th>TimeStamp</th>
+            </tr>
+           @{
+               foreach (MatchReport r in(IEnumerable<MatchReport>)ViewData["Reports"])
+               {
+                <tr>
+                    <td><a href="/MatchReports/view/@r.MatchReport_id"></a>@r.Match.HomeTeamName</td>
+                    <td>@r.Match.AwayTeamName</td>
+                    <td>@r.Match.HomeGoals - @r.Match.AwayGoals</td>
+                    <td>@r.Match.Timestamp</td>
+                </tr>   
+               }
+           }
+            
+        </table>
+    }
+    else
+    {
+        <p>There are no match reports to display from the database></p>
+    }
+    }
+

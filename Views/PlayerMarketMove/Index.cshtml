@@ -1,0 +1,66 @@
+﻿@using SportClubSite.Models
+@model IEnumerable<SportClubSite.Models.Market>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NAVAftar.cshtml";
+}
+
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+
+    a {
+        direction: ltr;
+        float: right;
+        font-size: larger;
+        margin-bottom: 10px;
+        padding-right: 20px;
+    }
+</style>
+
+
+<hr />
+<hr />
+<hr />
+
+<h3> All Market Move</h3>
+@foreach (var item in Model)
+{
+    <div style="font-size:larger; text-align:center">
+        <img style="min-height:40px; width:40px;" src="@Url.Content(@item.HomeTeamImage)" />
+        Team  Bay:(@item.Teambay) <<============  Team Sell :(@item.TeamSell)
+        <img style="min-height:40px; width:40px;" src="@Url.Content(@item.AwayTeamImage)" />
+        <br /> Player Name:(@item.PlayerName) Price:(@item.Price)
+        <hr />
+    </div>
+}
+

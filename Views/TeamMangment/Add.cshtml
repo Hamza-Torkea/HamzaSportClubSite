@@ -1,0 +1,102 @@
+﻿@model SportClubSite.Models.TeamMangment
+
+
+<link rel="stylesheet" type="text/css" href="~/Usertemp/css/roboto-font.css">
+<link rel="stylesheet" type="text/css" href="~/Usertemp/fonts/line-awesome/css/line-awesome.min.css">
+<!-- Jquery -->
+<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+<!-- Main Style Css -->
+<link rel="stylesheet" href="~/Usertemp/css/style.css" />
+
+
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <div class="page-content">
+        <div class="form-v2-content">
+
+            <div class="form-left">
+
+                <img src="~/image/i4.jpeg" alt="form" width="600" height="800">
+
+
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <h2 style="padding:20px">Addition Form</h2>
+
+                
+
+                <div class="form-horizontal" style="padding:50px">
+                    <h4>TeamMangment</h4>
+                    <hr />
+
+                    @Html.ValidationSummary(true)
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TeamMangment_id, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TeamMangment_id)
+                            @Html.ValidationMessageFor(model => model.TeamMangment_id)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Team_id, "Team_id", new { @class = "control-label col-md-12" })
+                       <br />
+                         <div class="col-md-10">
+                            @Html.EditorFor(model => model.Team_id)
+                            @Html.ValidationMessageFor(model => model.Team_id)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Owner, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Owner)
+                            @Html.ValidationMessageFor(model => model.Owner)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Coatch, new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Coatch)
+                            @Html.ValidationMessageFor(model => model.Coatch)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Employee_id, "Employee_id", new { @class = "control-label col-md-2" })
+                        <br />
+                        <div class="col-md-10 col-12">
+                            @Html.EditorFor(model => model.Employee_id)
+                            @Html.ValidationMessageFor(model => model.Employee_id)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <br />
+                        <div class="col-md-offset-8 col-md-12">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            <div style="padding:50px">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+            }
+
+            
+        
+
+    </div>
+    </div>
+</body>

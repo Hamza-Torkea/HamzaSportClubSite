@@ -1,0 +1,102 @@
+﻿@using SportClubSite.Models
+@model IEnumerable<SportClubSite.Models.Team>
+
+@{
+
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_NAVAftar.cshtml";
+}
+<style>
+        
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+
+    a {
+        direction: ltr;
+        float: right;
+        font-size: larger;
+        margin-bottom: 10px;
+        padding-right: 20px;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<hr/>
+<hr />
+<hr />
+<h3><a class="btn btn-primary btn-xl " href="/teams/add">Add</a> MyTeams </h3>
+
+    @{
+        if (ViewData["MyTeams"] != null)
+        {
+            <table>
+                <tr>
+                    <th>Team number</th>
+
+                    <th>Team Name</th>
+
+
+                </tr>
+                @foreach (Team t in (IEnumerable<Team>)ViewData["MyTeams"])
+                {
+                    <tr>
+
+                        <td>@t.Team_id</td>
+
+                        <td>@t.TeamName</td>
+
+                        <td class="btn btn-light ">
+                            <a href="@Url.Action("Edit", "Teams",new { id = t.Team_id })">
+                                <i class="fa fa-folder" ></i>
+                            </a>
+                           
+                        </td>
+                        
+                        <td class="btn btn-light ">
+                            <a href="@Url.Action("Delete", "Teams",new { id = t.Team_id })">
+                                <i class="fa fa-trash"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </table>
+
+
+        }
+        else
+        {
+            <p>There are no teams to display in database.</p>
+        }
+
+    }

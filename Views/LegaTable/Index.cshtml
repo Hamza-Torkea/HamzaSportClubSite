@@ -1,0 +1,98 @@
+﻿@using SportClubSite.Models
+@model IEnumerable<SportClubSite.Models.Cycle1>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ViewPage.cshtml";
+}
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+
+    a {
+        direction: ltr;
+        float: right;
+        font-size: larger;
+        margin-bottom: 10px;
+        padding-right: 20px;
+    }
+</style>
+
+
+
+<hr />
+<hr />
+<hr />
+
+<h3> La Lega</h3>
+
+@{
+    if (ViewData["MyLega"] != null)
+    {
+        <table>
+            <tr>
+                <th>Cycle name</th>
+                <th> Home Team </th>
+                <th> Away Team </th>
+                <th> Studim</th>
+                <th>Match Time</th>
+                <th>Commenicator</th>
+            </tr>
+            @foreach (Cycle1 c in (IEnumerable<Cycle1>)ViewData["MyLega"])
+            {
+                <tr>
+
+                    <td>@c.CycleName</td>
+                    <td>@c.HomeTeam</td>
+                    <td>@c.AwayTeam</td>
+                    <td>@c.Studim</td>
+                    <td>@c.MatchTime</td>
+                    <td>@c.CommenacatorSport</td>
+                    <td class="btn btn-danger">
+
+                        @Html.ActionLink("AddNotice", "AddNotice",new { id = c.CycleId })
+
+                       
+
+
+                    </td>
+                   
+                </tr>
+            }
+        </table>
+
+    }
+    else
+    {
+        <p>There are no Data to display in database.</p>
+    }
+
+}

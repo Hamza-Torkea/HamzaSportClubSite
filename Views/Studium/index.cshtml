@@ -1,0 +1,94 @@
+﻿@using SportClubSite.Models
+@model IEnumerable<SportClubSite.Models.Studium>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_NAVAftar.cshtml";
+}
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+
+    a {
+        direction: ltr;
+        float: right;
+        font-size: larger;
+        margin-bottom: 10px;
+        padding-right: 20px;
+    }
+</style>
+
+
+
+<hr />
+<hr />
+<hr />
+
+<h2><a class="btn btn-primary btn-xl " href="/Studium/Add">Add</a>All Studium</h2>
+
+
+@{
+    if (ViewData["All Studium"] != null)
+    {
+
+        <table>
+            <tr>
+                <th>Team Name</th>
+                <th>Stadium Name</th>
+                <th>capacity</th>
+
+            </tr>
+            @foreach (Studium s in (IEnumerable<Studium>)ViewData["All Studium"])
+            {
+                <tr>
+
+                    <td>@s.Team_id</td>
+                    <td>@s.Studium_name</td>
+                    <td>@s.capacity</td>
+                    <td class="btn btn-light ">
+                        <a href="@Url.Action("Edit", "Studium", new { id = s.Studium_id })">
+                            <i class="fa fa-folder"></i>
+                        </a>
+
+                    </td>
+                </tr>
+            }
+        </table>
+
+    }
+    else
+    {
+        <p>There are no teams to display in database.</p>
+    }
+    
+
+
+}

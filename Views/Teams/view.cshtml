@@ -1,0 +1,114 @@
+﻿@using SportClubSite.Models
+@model SportClubSite.Models.Team
+
+@{
+    ViewBag.Title = "view";
+    Layout = "~/Views/Shared/_ViewPage.cshtml";
+}
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+    a {
+        direction: rtl;
+        float: left;
+        font-size: large;
+    }
+</style>
+<hr />
+<hr />
+<hr />
+
+@if (ViewData["opponentTeamName"] != null)
+{
+<h2><a href="/Teams/view/@Model.Team_id"> @Html.Raw(Model.TeamName + " </a>   -   VS   " + ViewData["opponentTeamName"])</a></h2>
+}
+else
+{ 
+<h2>@Model.TeamName </h2>
+}
+<div class="col col50 ">
+    <h2> Home Games</h2>
+    @{
+        if (ViewData["Home Games"] != null)
+        {
+            foreach(MatchReport r in (IEnumerable<MatchReport>)ViewData["Home Games"]){
+                <p><a href="/matchreports/view/@r.MatchReport_id">@Model.TeamName.ToUpper() @r.Match.HomeGoals VS @r.Match.AwayGoals @r.Match.AwayTeam </a> (@r.Match.Timestamp)</p>
+                
+            }
+        }
+        else
+        {
+            <p> there no Home match report for this team</p>
+        }
+    }
+</div>
+
+
+<div class="col col50 ">
+    <h2> Away Games</h2>
+
+    @{
+        if (ViewData["Away Games"] != null)
+        {
+            foreach (MatchReport r in (IEnumerable<MatchReport>)ViewData["Away Games"])
+            {
+                <p>
+                    <a href="/matchreports/view/@r.MatchReport_id">@r.Match.HomeGoals @r.Match.HomeTeamName Vs @r.Match.AwayGoals @Model.TeamName.ToUpper() </a>  (@r.Match.Timestamp)
+                </p>
+
+            }
+        }
+        else
+        {
+            <p> there no Away match report for this team</p>
+        }
+    }
+
+<div class="col col50">
+    <h2> choose team</h2>
+    @if (ViewData["AllTeams"] != null)
+    {
+        foreach (Team t in (IEnumerable<Team>)ViewData["AllTeams"])
+        {
+            <p><a href="/Teams/view/@Model.Team_id?opponent=@t.Team_id">@t.TeamName<hr /><hr /></a></p>
+        }
+    }
+    else
+    {
+        <p>>there are no teams</p>
+    }
+</div>
+
+</div>
+
+
+<br class="clearfix" />

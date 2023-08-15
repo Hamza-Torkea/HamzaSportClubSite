@@ -1,0 +1,91 @@
+﻿@using SportClubSite.Models
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_ViewPage.cshtml";
+}
+
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    td{
+        font-size:larger;
+    }
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size:x-large;
+        background-color: #00771e;
+        color: white;
+    }
+
+    a {
+        direction: rtl;
+        float: left;
+        font-size: large;
+    }
+</style>
+
+
+<hr />
+<hr />
+<hr />
+
+<h2>League Table</h2>
+
+<table>
+
+    <tr>
+        <th>Position</th>
+        <th>Team Name</th>
+        <th>Wins</th>
+        <th>draws</th>
+        <th>Losses</th>
+        <th>for</th>
+        <th>Against</th>
+        <th>Difference</th>
+        <th>Points</th>
+      
+
+    </tr>
+
+    @if (ViewData["Results"] != null)
+    {
+        int count = 0;
+        foreach(LeagueTableResult res in (IEnumerable<LeagueTableResult>)ViewData["Results"])
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td><a href="/Teams/view/@res.TeamId"></a>@res.TeamName</td>
+                <td>@res.Wins</td>
+                <td>@res.Draws</td>
+                <td>@res.Losses</td>
+                <td>@res.GoalsFor</td>
+                <td>@res.GoalsAgainst</td>
+                <td>@res.GoalsDifference</td>
+                <td>@res.Points</td>
+
+            </tr>
+        }
+    }
+    
+
+</table>

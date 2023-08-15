@@ -1,0 +1,80 @@
+﻿@using SportClubSite.Models
+@model IEnumerable<SportClubSite.Models.Team>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_ViewPage.cshtml";
+}
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+    a {
+        direction: rtl;
+        float: left;
+        font-size: large;
+    }
+</style>
+
+<hr />
+<hr />
+<hr />
+
+
+<h2>AllTeams</h2>
+
+@{
+    if(ViewData["Teams"]!= null)
+    {
+        <table>
+
+            <tr>
+
+                <th> Team Name </th>
+                            
+            </tr>
+           @{
+               foreach (Team t in(IEnumerable<Team>)ViewData["Teams"])
+               {
+                <tr>
+                    <td><a href="/Teams/view/@t.Team_id"></a>@t.TeamName</td>
+                   
+                </tr>   
+               }
+           }
+            
+        </table>
+    }
+    else
+    {
+        <p>There are no Teams to display from the database></p>
+    }
+    } 
+

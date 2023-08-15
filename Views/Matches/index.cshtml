@@ -1,0 +1,86 @@
+﻿@using SportClubSite.Models
+@model IEnumerable<SportClubSite.Models.Match>
+
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_NAVAftar.cshtml";
+}
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+
+    a {
+        direction: ltr;
+        float: right;
+        font-size: larger;
+        margin-bottom: 10px;
+        padding-right: 20px;
+    }
+</style>
+
+
+
+<hr />
+<hr />
+<hr />
+
+<h3><a class="btn btn-primary btn-xl " href="/Matches/Add">Add</a> Matches</h3>
+
+@{
+    if (ViewData["MyMatches"] != null)
+    {
+        <table>
+            <tr>
+                <th> Home Team </th>
+                <th> Away Team </th>
+                <th> Result</th>
+                <th>Date of Match</th>
+            </tr>
+            @foreach (Match m in (IEnumerable<Match>)ViewData["MyMatches"])
+            {
+                <tr>
+
+                    <td>@m.HomeTeamName</td>
+                    <td>@m.AwayTeamName</td>
+                    <td>@m.HomeGoals - @m.AwayGoals</td>
+                    <td>@m.Timestamp</td>
+                </tr>
+            }
+        </table>
+
+    }
+    else
+    {
+        <p>There are no teams to display in database.</p>
+    }
+
+}

@@ -1,0 +1,184 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--<title> Spor Club </title>-->
+    <title>@ViewBag.Title</title>
+
+    <!--web site meta -->
+    <meta charset="utf-8">
+    <meta name="Descritption" content="Spor Club">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--First mobile meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap core CSS -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/CS/CssLayoutStart/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom fonts for this template -->
+
+    <link href="~/CS/CssLayoutStart/all.min.css" rel="stylesheet" />
+
+    <!--Dash Bord-->
+    <!-- Custom styles for this template -->
+    <link href="~/CS/CssLayoutStart/agency.min.css" rel="stylesheet" />
+
+
+
+
+    <!-- Bootstrap CSS
+        ============================================ -->
+
+    <link href="~/CS/CssLayoutStart/font-awesome.min.css" rel="stylesheet" />
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link href="~/CS/CssLayoutStart/metisMenu-vertical.css" rel="stylesheet" />
+
+
+    <!-- responsive CSS
+        ============================================ -->
+    <link href="~/CS/CssLayoutStart/responsive.css" rel="stylesheet" />
+    <link href="~/CS/CssLayoutStart/mycss.css" rel="stylesheet" />
+</head>
+
+<body id="page-top" >
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+
+        <div class=" row">
+
+
+
+
+            <div class="col-lg-2">
+                <a class="navbar-brand js-scroll-trigger navbar-right" href="#page-top">AlJLAA CLUB</a>
+            </div>
+
+        </div>
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="glyphicon glyphicon-align-justify"></i>
+        </button>
+
+
+
+        <div class="collapse navbar-collapse " id="navbarResponsive">
+
+
+
+
+            <ul class="navbar-nav text-uppercase ml-auto metismenu">
+
+                <li class="nav-item active">
+                    <a class="nav-link js-scroll-trigger" href="#page-top"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#services"><i class="glyphicon glyphicon-home"></i>Services</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
+
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                </li>
+
+
+            </ul>
+            <ul class="navbar-nav text-uppercase ml-auto">
+
+                <li class="nav-item">
+
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+
+
+
+
+        </div>
+
+    </nav>
+
+
+    <div>
+        @RenderBody()
+    </div>
+
+    Footer
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+
+    <script src="~/Script/jsLayoutStart/jquery.min.js"></script>
+    <script src="~/Script/jsLayoutStart/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Plugin JavaScript -->
+    <script src="~/Script/jsLayoutStart/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="~/Script/jsLayoutStart/jqBootstrapValidation.js"></script>
+    <script src="~/Script/jsLayoutStart/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="~/Script/jsLayoutStart/agency.min.js"></script>
+    w
+    @RenderSection("secripts", required: false)
+
+</body>
+
+</html>

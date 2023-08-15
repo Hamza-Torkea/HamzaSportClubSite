@@ -1,0 +1,102 @@
+﻿@model SportClubSite.Models.Team
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_NAVAftar.cshtml";
+}
+
+<style>
+    h4 {
+        float: left;
+        display: inline-block;
+        background-color: white;
+        color: black;
+        font-size: 1.5em;
+        padding: 10px 20px;
+        text-decoration: none;
+        
+    }
+    
+</style>
+<meta name="viewport" content="width=device-width" />
+<title>Mangment</title>
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="~/Usertemp/css/roboto-font.css">
+<link rel="stylesheet" type="text/css" href="~/Usertemp/fonts/line-awesome/css/line-awesome.min.css">
+<!-- Jquery -->
+<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+<!-- Main Style Css -->
+<link rel="stylesheet" href="~/Usertemp/css/style.css" />
+
+<hr />
+<hr />
+<hr />
+<body >
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <div class="page-content">
+        <div class="form-v2-content">
+            
+            <div class="form-left">
+
+                <img src="~/image/a3.jpg" alt="form" width="400" height="400">
+               
+
+                </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                <div class="w3-container w3-blue">
+
+                 <h2 style="padding:60px">Addition Form</h2>
+                </div>
+
+                    <div class="form-horizontal" style="padding:70px">
+
+                        <hr />
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Team_id, new { @class = "control-label col-md-2" })
+                            <br/>
+                            <br/>
+                            
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Team_id)
+                                @Html.ValidationMessageFor(model => model.Team_id)
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TeamName, new { @class = "control-label col-md-2" })
+                            <br/>
+                            <br/>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TeamName)
+                                @Html.ValidationMessageFor(model => model.TeamName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+
+                            </div>
+                        </div>
+                    </div>
+                <div style="padding:30px">
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+                
+                }
+
+               
+            </div>
+        </div>
+    
+</body>

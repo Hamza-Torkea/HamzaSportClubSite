@@ -1,0 +1,56 @@
+﻿@model SportClubSite.Models.MatchReport
+
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_ViewPage.cshtml";
+}
+<style>
+    table {
+     
+    
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+    a {
+        direction: rtl;
+        float: left;
+        font-size: large;
+    }
+</style>
+
+
+<hr />
+<hr />
+<hr />
+
+<h3>@Model.Match.HomeTeamName (@Model.Match.HomeGoals - @Model.Match.AwayGoals) @Model.Match.AwayTeamName</h3>
+<p class="timestamp">@Model.Match.Timestamp</p>
+<p class="matchheader"><img src="~/image/stadium.png" /></p>
+<p><a href="/MatchReports/view/@Model.MatchReport_id">View Match Report</a></p>

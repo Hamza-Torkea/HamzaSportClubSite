@@ -1,0 +1,94 @@
+﻿@using SportClubSite.Models
+@model IEnumerable<SportClubSite.Models.PlayerMarketMove>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ViewPage.cshtml";
+}
+
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+
+    a {
+        direction: ltr;
+        float: right;
+        font-size: larger;
+        margin-bottom: 10px;
+        padding-right: 20px;
+    }
+</style>
+
+
+
+<hr />
+<hr />
+<hr />
+
+<h3><a class="btn btn-primary btn-xl " href="/Matches/Add">Add</a> MyMove</h3>
+
+@{
+    if (ViewData["MyMove"] != null)
+    {
+        <table>
+            <tr>
+                <th>MarketMoveId</th>
+                <th>PlayerName</th>
+                <th> Previous Team </th>
+                <th> New Team </th>
+                <th> Price</th>
+                <th>condition</th>
+                <th>salary</th>
+                <th>Awards</th>
+            </tr>
+            @foreach (PlayerMarketMove p in (IEnumerable<PlayerMarketMove>)ViewData["MyMove"])
+            {
+                <tr>
+
+                    <td>@p.MarketMoveId</td>
+                    <td>@p.playername</td>
+                    <td>@p.oldTeam</td>
+                    <td>@p.NewTeam</td>
+                    <td>@p.Price</td>
+                    <td>@p.condation</td>
+                    <td>@p.salary</td>
+                    <td>@p.Awards</td>
+                </tr>
+            }
+        </table>
+
+    }
+    else
+    {
+        <p>There are no Data to display in database.</p>
+    }
+
+}

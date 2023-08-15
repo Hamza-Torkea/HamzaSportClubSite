@@ -1,0 +1,83 @@
+﻿@using SportClubSite.Models
+@model IEnumerable<SportClubSite.Models.Match>
+
+@{
+    ViewBag.Title = "IndexCycle";
+    Layout = "~/Views/Shared/_NAVAftar.cshtml";
+}
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        font-size: larger;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        font-size: x-large;
+        background-color: #00771e;
+        color: white;
+    }
+
+    a {
+        direction: ltr;
+        float: right;
+        font-size: larger;
+        margin-bottom: 10px;
+        padding-right: 20px;
+    }
+</style>
+
+<hr />
+<hr />
+<hr />
+
+<h2 style="text-align:center">Cycle</h2>
+<hr />
+
+@foreach (var item in Model)
+{
+    <div style="font-size:larger; text-align:center">
+        <table>
+
+            <tr>
+                <th>..</th>
+                <th>home team</th>
+                <th>awayteam</th>
+                <th>...</th>
+                <th>staddium</th>
+                <th>timestamp</th>
+            </tr>
+
+            
+            <tr>
+                <td><img style="min-height:40px; width:40px;" src="@Url.Content(@item.HomeTeamImage)" /></td>
+                <td>@item.HomeTeamName</td>
+                <td>@item.AwayTeamName</td>
+                <td><img style="min-height:40px; width:40px;" src="@Url.Content(@item.AwayTeamImage)" /></td>
+                <td>@item.stadium</td>
+                <td>@item.Timestamp</td>
+            </tr>
+            
+        </table>
+    </div>
+}

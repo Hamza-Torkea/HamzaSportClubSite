@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SportClubSite.Models.CycleTable>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ViewPage.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SortTeam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.goals)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Assest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YallowCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RedCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Differnce)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cycle.Cycle_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team.TeamName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SortTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.goals)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YallowCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RedCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Differnce)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cycle.Cycle_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.TeamName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CycleTable_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CycleTable_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CycleTable_id })
+        </td>
+    </tr>
+}
+
+</table>

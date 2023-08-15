@@ -1,0 +1,55 @@
+﻿@model SportClubSite.Models.MatchReport
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_NAVAftar.cshtml";
+}
+
+<h2>Add</h2>
+<body class="images-cropper-pro" style="background-image: url(/image/c3.jpg)">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal" style="color:darkgray">
+            <h4>MatchReport</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MatchReport_id, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MatchReport_id)
+                    @Html.ValidationMessageFor(model => model.MatchReport_id)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Match_id, "Match_id", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.DropDownListFor(model => model.Match_id, (IEnumerable<SelectListItem>)ViewData["Matches"]);
+                    @Html.ValidationMessageFor(model => model.Match_id)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Content, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Content)
+                    @Html.ValidationMessageFor(model => model.Content)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>

@@ -1,0 +1,94 @@
+﻿@model SportClubSite.Models.CycleTable
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_ViewPage.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>CycleTable</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.CycleTable_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cycle_id, "Cycle_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Cycle_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.Cycle_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Team_id, "Team_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Team_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.Team_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SortTeam, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SortTeam)
+                @Html.ValidationMessageFor(model => model.SortTeam)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.goals, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.goals)
+                @Html.ValidationMessageFor(model => model.goals)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Assest, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Assest)
+                @Html.ValidationMessageFor(model => model.Assest)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YallowCard, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.YallowCard)
+                @Html.ValidationMessageFor(model => model.YallowCard)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RedCard, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RedCard)
+                @Html.ValidationMessageFor(model => model.RedCard)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Differnce, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Differnce)
+                @Html.ValidationMessageFor(model => model.Differnce)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

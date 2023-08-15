@@ -1,0 +1,220 @@
+﻿@model SportClubSite.Models.RegisterViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/UserLogin/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/UserLogin/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/UserLogin/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/UserLogin/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/UserLogin/css/main.css">
+    <script src="~/Script/jsLayoutAfter/bootstrap.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/fullcalendar-active.js"></script>
+    <script src="~/Script/jsLayoutAfter/fullcalendar.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery-1.11.3.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery-price-slider.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.charts-sparkline.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.meanmenu.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.scrollUp.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.sparkline.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.sticky.js"></script>
+    <script src="~/Script/jsLayoutAfter/main.js"></script>
+    <script src="~/Script/jsLayoutAfter/mCustomScrollbar-active.js"></script>
+    <script src="~/Script/jsLayoutAfter/metisMenu-active.js"></script>
+    <script src="~/Script/jsLayoutAfter/metisMenu.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/moment.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/morris-active.js"></script>
+    <script src="~/Script/jsLayoutAfter/morris.js"></script>
+    <script src="~/Script/jsLayoutAfter/owl.carousel.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/plugins.js"></script>
+    <script src="~/Script/jsLayoutAfter/raphael-min.js"></script>
+    <script src="~/Script/jsLayoutAfter/wow.min.js"></script>
+    <script src="~/Script/jsLayoutStart/agency.min.js"></script>
+    <script src="~/Script/jsLayoutStart/bootstrap.bundle.min.js"></script>
+    <script src="~/Script/jsLayoutStart/contact_me.js"></script>
+    <script src="~/Script/jsLayoutStart/jqBootstrapValidation.js"></script>
+    <script src="~/Script/jsLayoutStart/jquery.easing.min.js"></script>
+    <script src="~/Script/jsLayoutStart/jquery.min.js"></script>
+    <script src="~/Script/myjavascript.js"></script>
+    <script src="~/Scripts/_references.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.intellisense.js"></script>
+    <script src="~/Scripts/respond.min.js"></script>
+    <script src="~/Scripts/respond.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/popper-utils.min.js"></script>
+    <script src="~/Scripts/popper-utils.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.bootstrap.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.ui.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery-ui.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.13.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.13.js"></script>
+    <script src="~/Scripts/src/utils/getReferenceNode.js"></script>
+    <script src="~/Scripts/src/utils/getRoot.js"></script>
+    <script src="~/Scripts/src/utils/getPopperOffsets.js"></script>
+    <script src="~/Scripts/src/utils/getRoundedOffsets.js"></script>
+    <script src="~/Scripts/src/utils/getScroll.js"></script>
+    <script src="~/Scripts/src/utils/isFunction.js"></script>
+    <script src="~/Scripts/src/utils/isOffsetContainer.js"></script>
+    <script src="~/Scripts/src/utils/isBrowser.js"></script>
+    <script src="~/Scripts/src/utils/getStyleComputedProperty.js"></script>
+    <script src="~/Scripts/src/utils/getScrollParent.js"></script>
+    <script src="~/Scripts/src/utils/getReferenceOffsets.js"></script>
+    <script src="~/Scripts/src/utils/getSupportedPropertyName.js"></script>
+    <script src="~/Scripts/src/utils/includeScroll.js"></script>
+    <script src="~/Scripts/src/utils/getWindowSizes.js"></script>
+    <script src="~/Scripts/src/utils/index.js"></script>
+    <script src="~/Scripts/src/utils/getWindow.js"></script>
+    <script src="~/Scripts/src/utils/getViewportOffsetRectRelativeToArtbitraryNode.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/src/utils/find.js"></script>
+    <script src="~/Scripts/src/utils/findCommonOffsetParent.js"></script>
+    <script src="~/Scripts/src/utils/getBordersSize.js"></script>
+    <script src="~/Scripts/src/utils/getBoundingClientRect.js"></script>
+    <script src="~/Scripts/src/utils/getBoundaries.js"></script>
+    <script src="~/Scripts/src/utils/getFixedPositionOffsetParent.js"></script>
+    <script src="~/Scripts/src/utils/getClientRect.js"></script>
+    <script src="~/Scripts/src/utils/getOffsetParent.js"></script>
+    <script src="~/Scripts/src/utils/getOppositePlacement.js"></script>
+    <script src="~/Scripts/src/utils/getOuterSizes.js"></script>
+    <script src="~/Scripts/src/utils/getParentNode.js"></script>
+    <script src="~/Scripts/src/utils/getOppositeVariation.js"></script>
+    <script src="~/Scripts/src/utils/getOffsetRect.js"></script>
+    <script src="~/Scripts/src/utils/getOffsetRectRelativeToArbitraryNode.js"></script>
+    <script src="~/Scripts/src/utils/findIndex.js"></script>
+    <script src="~/Scripts/src/utils/debounce.js"></script>
+    <script src="~/Scripts/src/utils/computeAutoPlacement.js"></script>
+    <script src="~/Scripts/src/utils/clockwise.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/src/methods/defaults.js"></script>
+    <script src="~/Scripts/src/methods/destroy.js"></script>
+    <script src="~/Scripts/src/methods/disableEventListeners.js"></script>
+    <script src="~/Scripts/src/methods/enableEventListeners.js"></script>
+    <script src="~/Scripts/src/methods/placements.js"></script>
+    <script src="~/Scripts/src/methods/update.js"></script>
+    <!--===============================================================================================-->
+</head>
+<body>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+
+        @Html.AntiForgeryToken()
+
+        <div class="limiter">
+            <div class="container-login100" style="background-image: url('/UserLogin/images/bg-01.jpg');">
+                <div class="wrap-login100">
+                    <form class="login100-form validate-form">
+                        <span class="login100-form-logo">
+                            <i class="zmdi zmdi-landscape"></i>
+                        </span>
+
+                        <span class="login100-form-title p-b-34 p-t-27">
+                            Regester
+                        </span>
+                        @Html.ValidationSummary(true)
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(m => m.Email, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(m => m.City, new { @class = "form-control" })
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <select id="Com2" class="form-control" name="Theme" required="required">
+                                    @foreach (string s in ViewBag.roules)
+                                    {
+                                        <option value=@s>@s</option>
+
+                                    }
+
+
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail">
+
+                                    <input type="submit" class="btn btn-default" value="Register" />
+
+                                    <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger hidden-lg" href=@Url.Action( "IndexStartAfterLogin", "Home")>  Back   </a>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    }
+</body>
+</html>
+
+

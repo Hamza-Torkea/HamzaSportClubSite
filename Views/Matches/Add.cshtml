@@ -1,0 +1,122 @@
+﻿@model SportClubSite.Models.Match
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_NAVAftar.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Usertemp/css/roboto-font.css">
+<link rel="stylesheet" type="text/css" href="~/Usertemp/fonts/line-awesome/css/line-awesome.min.css">
+<!-- Jquery -->
+<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+<!-- Main Style Css -->
+<link rel="stylesheet" href="~/Usertemp/css/style.css" />
+
+<h2>Add Match</h2>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <div class="page-content">
+        <div class="form-v2-content">
+            <div class="form-left">
+               
+                 <img src="~/image/a12.jpg" alt="form" width="600">
+                
+            </div>
+                
+            @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <h2 style="padding:30px">Addition Form</h2>
+
+                    <div class="form-horizontal" style="padding:30px">
+                        
+                        <hr />
+                        @Html.ValidationSummary(true)
+                         
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Match_id, new { @class = "control-label col-md-2" })
+                            <br />
+                            <br />
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Match_id)
+                                @Html.ValidationMessageFor(model => model.Match_id)
+                            </div>
+                        </div>
+                        <br />
+                        
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.HomeTeam, "HomeTeam", new { @class = "control-label col-md-2" })
+                            <br />
+                            <br />
+                            <div class="col-md-10">
+
+                                @Html.DropDownListFor(model => model.HomeTeam, (IEnumerable<SelectListItem>)ViewData["MyTeams"]);
+                                @Html.ValidationMessageFor(model => model.HomeTeam)
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AwayTeam, "AwayTeam", new { @class = "control-label col-md-2" })
+                            <br />
+                            <br />
+                            <div class="col-md-10">
+
+                                @Html.DropDownListFor(model => model.AwayTeam, (IEnumerable<SelectListItem>)ViewData["MyTeams"]);
+                                @Html.ValidationMessageFor(model => model.AwayTeam)
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.HomeGoals, new { @class = "control-label col-md-2" })
+                            <br />
+                            <br />
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.HomeGoals)
+                                @Html.ValidationMessageFor(model => model.HomeGoals)
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AwayGoals, new { @class = "control-label col-md-2" })
+                            <br />
+                            <br />
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.AwayGoals)
+                                @Html.ValidationMessageFor(model => model.AwayGoals)
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Timestamp, new { @class = "control-label col-md-2" })
+                            <br />
+                            <br />
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Timestamp)
+                                @Html.ValidationMessageFor(model => model.Timestamp)
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                <br />
+                <br />
+            <div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+
+                
+            </div>
+
+        </div>
+    
+</body>

@@ -1,0 +1,642 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>@ViewBag.Title</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Style Sheet-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="~/CS/CssLayoutAfter/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/CS/CssLayoutAfter/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/CS/CssLayoutAfter/meanmenu.min.css" rel="stylesheet" />
+
+    <!-- الوان الشريط   -->
+
+    <link href="~/CS/CssLayoutAfter/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+
+    <link href="~/CS/CssLayoutAfter/metisMenu.min.css" rel="stylesheet" />
+    <link href="~/CS/CssLayoutAfter/metisMenu-vertical.css" rel="stylesheet" />
+
+    <link href="~/CS/CssLayoutAfter/style.css" rel="stylesheet" />
+    <link href="~/CS/CssLayoutAfter/responsive.css" rel="stylesheet" />
+
+</head>
+<body >
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                <nav class="sidebar-nav left-sidebar-menu-pro">
+                    <ul class="metismenu" id="menu1">
+
+                        <li>
+                            <a class="" href="@Url.Action( "index", "Teams")">
+                                <i class=" fa fa-flag"></i>  <span class="mini-click-non">تنظيم الفرق</span>
+                            </a>
+                           
+                        </li>
+                        <li>
+                            <a class="" href="@Url.Action( "index", "Players")">
+                                <i class=" glyphicon glyphicon-user"></i>  <span class="mini-click-non">تنظيم اللاعبين</span>
+                            </a>
+
+                        </li>
+                        
+                       
+                        <li>
+                            <a class="" href="@Url.Action( "index", "Matches")" aria-expanded="false">
+                                <i class="fa fa-futbol-o"></i> <span class="mini-click-non">تنظيم المباريات</span>
+                            </a>
+
+                            
+                        </li>
+                        <li>
+                            <a class="" href="@Url.Action("index", "MatchReports")" aria-expanded="false">
+                                <i class="fa fa-file"></i> <span class="mini-click-non">تقارير المباريات</span>
+                            </a>
+
+                          
+                        </li>
+                        <li>
+                            <a class="" href="@Url.Action("IndexCycle", "Smart")" aria-expanded="false">
+                                <i class="fa fa-trophy" style="font-size:20px"></i>  <span class="mini-click-non"> دوري الأبطال </span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="" href="@Url.Action("IndexPredictGet", "Smart")" aria-expanded="false">
+                                <i class="fa fa-cubes"></i>  <span class="mini-click-non"> تنبؤ بنتائج المباريات</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="" href="@Url.Action("Index", "PlayerMarketMove")" aria-expanded="false">
+                                <i class="fa fa-cny"></i> <span class="mini-click-non">سوق انتقالات اللاعبين</span>
+                            </a>
+
+
+                        </li>
+                        <li>
+                            <a class="" href="@Url.Action("index", "Studium")" aria-expanded="false">
+                                <i class="fa fa-deaf"></i> <span class="mini-click-non">تنظيم الملاعب</span>
+                            </a>
+
+
+                        </li>
+                        <li>
+                            <a class="" href="@Url.Action("index", "TeamMangment")" aria-expanded="false">
+                                <i class="fa fa-address-card"></i>  <span class="mini-click-non"> إدارة الفريق</span>
+                            </a>
+
+                        </li>
+                        <li id="removable">
+                            <a class="" href="@Url.Action("index", "Employee")" aria-expanded="false">
+                                <i class="glyphicon glyphicon-user"></i> <span class="mini-click-non">إدارة الموظفين</span>
+                            </a>
+
+                        </li>
+                        <li id="removable">
+                            <a class="" href="@Url.Action("AddUser", "Account")" aria-expanded="false">
+                                <i class="fa fa-suitcase"></i> <span class="mini-click-non">صلاحيات النظام</span>
+                            </a>
+
+                        </li>
+                       
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>
+
+
+
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+
+
+       
+           
+        <!--      Body Desktop     -->
+
+        <div class="header-advance-area">
+            <div class="header-top-area">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+                                            <button type="button" id="sidebarCollapse"
+                                                    class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                                <i class="fa fa-bars"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                        <div class="header-top-menu tabl-d-n">
+                                            <ul class="nav navbar-nav mai-top-nav">
+                                                <li class="nav-item">
+                                                    <a href=@Url.Action("Index","Home")
+                                                       class="nav-link btn active " style="color:rgb(255, 255, 255)">
+                                                        <span class="glyphicon glyphicon-home"></span>
+                                                        Back
+                                                        To Home
+                                                        <span class="glyphicon glyphicon-share-alt"></span>
+
+                                                    </a>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="header-right-info">
+                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                <li class="nav-item dropdown">
+                                                    <a href="#" data-toggle="dropdown" role="button"
+                                                       aria-expanded="false" class="nav-link dropdown-toggle">
+                                                        <i class="fa fa-envelope-o adminpro-chat-pro"
+                                                           aria-hidden="true"></i><span class="indicator-ms"></span>
+                                                    </a>
+                                                    <div role="menu"
+                                                         class="author-message-top dropdown-menu animated zoomIn">
+                                                        <div class="message-single-top">
+                                                            <h1>Message</h1>
+                                                        </div>
+                                                        <ul class="message-menu">
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="message-img">
+                                                                        <img src="img/contact/1.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="message-content">
+                                                                        <span class="message-date">16 Sept</span>
+                                                                        <h2>My Information</h2>
+                                                                        <p>
+                                                                            Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="message-img">
+                                                                        <img src="img/contact/4.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="message-content">
+                                                                        <span class="message-date">16 Sept</span>
+                                                                        <h2>Sulaiman din</h2>
+                                                                        <p>
+                                                                            Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="message-img">
+                                                                        <img src="img/contact/3.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="message-content">
+                                                                        <span class="message-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>
+                                                                            Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="message-img">
+                                                                        <img src="img/contact/2.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="message-content">
+                                                                        <span class="message-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>
+                                                                            Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="message-view">
+                                                            <a href="#">View All Messages</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <!--اشعارات-->
+                                                <li class="nav-item">
+                                                    <a href="#" data-toggle="dropdown" role="button"
+                                                       aria-expanded="false" class="nav-link dropdown-toggle">
+                                                        <i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span>
+                                                    </a>
+                                                    <div role="menu"
+                                                         class="notification-author dropdown-menu animated zoomIn">
+                                                        <div class="notification-single-top">
+                                                            <h1>Notifications</h1>
+                                                        </div>
+                                                        <ul class="notification-menu">
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="notification-icon">
+                                                                        <i class="fa fa-check adminpro-checked-pro admin-check-pro"
+                                                                           aria-hidden="true"></i>
+                                                                    </div>
+                                                                    <div class="notification-content">
+                                                                        <span class="notification-date">16 Sept</span>
+                                                                        <h2>Advanda Cro</h2>
+                                                                        <p>
+                                                                            Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="notification-icon">
+                                                                        <i class="fa fa-cloud adminpro-cloud-computing-down"
+                                                                           aria-hidden="true"></i>
+                                                                    </div>
+                                                                    <div class="notification-content">
+                                                                        <span class="notification-date">16 Sept</span>
+                                                                        <h2>Sulaiman din</h2>
+                                                                        <p>
+                                                                            Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="notification-icon">
+                                                                        <i class="fa fa-eraser adminpro-shield"
+                                                                           aria-hidden="true"></i>
+                                                                    </div>
+                                                                    <div class="notification-content">
+                                                                        <span class="notification-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>
+                                                                            Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="notification-icon">
+                                                                        <i class="fa fa-line-chart adminpro-analytics-arrow"
+                                                                           aria-hidden="true"></i>
+                                                                    </div>
+                                                                    <div class="notification-content">
+                                                                        <span class="notification-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>
+                                                                            Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="notification-view">
+                                                            <a href="#">View All Notification</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="#" data-toggle="dropdown" role="button"
+                                                       aria-expanded="false" class="nav-link dropdown-toggle">
+                                                        <i class="fa fa-user adminpro-user-rounded header-riht-inf"
+                                                           aria-hidden="true"></i>
+                                                        <span class="admin-name">Advanda Cro</span>
+                                                        <i class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
+                                                    </a>
+                                                    <ul role="menu"
+                                                        class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                       
+
+                                                    </ul>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul class="mobile-menu-nav">
+                                        <li>
+                                            <a data-toggle="collapse" data-target="#Charts"
+                                               href=@Url.Action("Index","Home")>
+                                                Back To Home
+                                                <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span>
+                                            </a>
+
+                                        </li>
+                                       
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu end -->
+
+        </div>
+
+
+        <!--Body mobile-->
+        
+
+
+        <div>
+            @RenderBody()
+           
+               
+            
+        </div>
+
+        
+
+        </div>
+
+
+
+        <!--Body Desktop
+        <div class="product-sales-area mg-tb-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                        <div class="product-sales-chart">
+                            <div class="portlet-title">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="caption pro-sl-hd">
+                                            <span class="caption-subject text-uppercase"><b>Product Sales</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="actions graph-rp">
+                                            <div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-grey active">
+                                                    <input type="radio" name="options" class="toggle" id="option1" checked="">Today
+                                                </label>
+                                                <label class="btn btn-grey">
+                                                    <input type="radio" name="options" class="toggle" id="option2">Week
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="list-inline cus-product-sl-rp">
+                                <li>
+                                    <h5><i class="fa fa-circle" style="color: #24caa1;"></i>Bags</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle" style="color: #00b5c2;"></i>Shoes</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle" style="color: #ff7f5a;"></i>Jewelery</h5>
+                                </li>
+                            </ul>
+                            <div id="morris-area-chart" style="height: 356px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="white-box analytics-info-cs mg-b-10 res-mg-t-30">
+                            <h3 class="box-title">Total Visit</h3>
+                            <ul class="list-inline two-part-sp">
+                                <li>
+                                    <div id="sparklinedash"></div>
+                                </li>
+                                <li class="text-right sp-cn-r"><i class="fa fa-level-up" aria-hidden="true"></i> <span class="counter text-success">8659</span></li>
+                            </ul>
+                        </div>
+                        <div class="white-box analytics-info-cs mg-b-10">
+                            <h3 class="box-title">Total Page Views</h3>
+                            <ul class="list-inline two-part-sp">
+                                <li>
+                                    <div id="sparklinedash2"></div>
+                                </li>
+                                <li class="text-right"><i class="fa fa-level-up" aria-hidden="true"></i> <span class="counter text-purple">7469</span></li>
+                            </ul>
+                        </div>
+                        <div class="white-box analytics-info-cs mg-b-10">
+                            <h3 class="box-title">Unique Visitor</h3>
+                            <ul class="list-inline two-part-sp">
+                                <li>
+                                    <div id="sparklinedash3"></div>
+                                </li>
+                                <li class="text-right"><i class="fa fa-level-up" aria-hidden="true"></i> <span class="counter text-info">6011</span></li>
+                            </ul>
+                        </div>
+                        <div class="white-box analytics-info-cs">
+                            <h3 class="box-title">Bounce Rate</h3>
+                            <ul class="list-inline two-part-sp">
+                                <li>
+                                    <div id="sparklinedash4"></div>
+                                </li>
+                                <li class="text-right"><i class="fa fa-level-down" aria-hidden="true"></i> <span class="text-danger">18%</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="traffic-analysis-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="white-box tranffic-als-inner">
+                            <h3 class="box-title"><small class="pull-right m-t-10 text-success"><i class="fa fa-sort-asc"></i> 18% last month</small> Site Traffic</h3>
+                            <div class="stats-row">
+                                <div class="stat-item">
+                                    <h6>Overall Growth</h6>
+                                    <b>80.40%</b>
+                                </div>
+                                <div class="stat-item">
+                                    <h6>Montly</h6>
+                                    <b>15.40%</b>
+                                </div>
+                                <div class="stat-item">
+                                    <h6>Day</h6>
+                                    <b>5.50%</b>
+                                </div>
+                            </div>
+                            <div id="sparkline8"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="white-box tranffic-als-inner res-mg-t-30">
+                            <h3 class="box-title"><small class="pull-right m-t-10 text-danger"><i class="fa fa-sort-desc"></i> 18% last month</small>Site Traffic</h3>
+                            <div class="stats-row">
+                                <div class="stat-item">
+                                    <h6>Overall Growth</h6>
+                                    <b>80.40%</b>
+                                </div>
+                                <div class="stat-item">
+                                    <h6>Montly</h6>
+                                    <b>15.40%</b>
+                                </div>
+                                <div class="stat-item">
+                                    <h6>Day</h6>
+                                    <b>5.50%</b>
+                                </div>
+                            </div>
+                            <div id="sparkline9"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="white-box tranffic-als-inner res-mg-t-30">
+                            <h3 class="box-title"><small class="pull-right m-t-10 text-success"><i class="fa fa-sort-asc"></i> 18% last month</small>Site Traffic</h3>
+                            <div class="stats-row">
+                                <div class="stat-item">
+                                    <h6>Overall Growth</h6>
+                                    <b>80.40%</b>
+                                </div>
+                                <div class="stat-item">
+                                    <h6>Montly</h6>
+                                    <b>15.40%</b>
+                                </div>
+                                <div class="stat-item">
+                                    <h6>Day</h6>
+                                    <b>5.50%</b>
+                                </div>
+                            </div>
+                            <div id="sparkline10"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            -->
+        <!--End  Body mobile-->
+
+    
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-copy-right">
+                        <p>Copyright &copy; 2019 Aljalaa Sport Club</p>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jquery
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/bootstrap.min.js"></script>
+
+    <script src="~/Script/myjavascript.js"></script>
+
+    @RenderSection("secripts", required: false)
+
+    <!-- wow JS
+        ============================================ -->
+
+    <script src="~/Script/jsLayoutAfter/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+
+    <script src="~/Script/jsLayoutAfter/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+
+    <script src="~/Script/jsLayoutAfter/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/metisMenu.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+
+    <script src="~/Script/jsLayoutAfter/raphael-min.js"></script>
+    <script src="~/Script/jsLayoutAfter/morris.js"></script>
+    <script src="~/Script/jsLayoutAfter/morris-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/jquery.sparkline.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.charts-sparkline.js"></script>
+
+    <!-- calendar JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/moment.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/fullcalendar.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/fullcalendar-active.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/main.js"></script>
+
+</body>
+</html>
+

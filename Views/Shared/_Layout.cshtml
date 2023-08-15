@@ -1,0 +1,114 @@
+﻿
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>@ViewBag.Title</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/CS/CssLayoutAfter/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/CS/CssLayoutAfter/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="~/CS/CssLayoutAfter/meanmenu.min.css" rel="stylesheet" />
+
+    <!-- الوان الشريط   -->
+
+    <link href="~/CS/CssLayoutAfter/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <link href="~/CS/CssLayoutAfter/metisMenu.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <link href="~/CS/CssLayoutAfter/metisMenu-vertical.css" rel="stylesheet" />
+    <script src="~/Script/jsLayoutAfter/jquery-1.11.3.min.js"></script>
+    <link href="~/CS/CssLayoutAfter/style.css" rel="stylesheet" />
+    <link href="~/CS/CssLayoutAfter/responsive.css" rel="stylesheet" />
+    
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <div class="color-line"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="back-link back-backend">
+                    <a href=@Url.Action("Index","Home") class="btn btn-primary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+
+    <!-- jquery
+            ============================================ -->
+    <script src="~/Script/jsLayoutAfter/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+
+    <script src="~/Script/jsLayoutAfter/bootstrap.min.js"></script>
+
+    @RenderSection("secripts", required: false)
+
+    <!-- wow JS
+        ============================================ -->
+
+    <script src="~/Script/jsLayoutAfter/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+
+    <script src="~/Script/jsLayoutAfter/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+
+    <script src="~/Script/jsLayoutAfter/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/metisMenu.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+
+    <script src="~/Script/jsLayoutAfter/raphael-min.js"></script>
+    <script src="~/Script/jsLayoutAfter/morris.js"></script>
+    <script src="~/Script/jsLayoutAfter/morris-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/jquery.sparkline.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.charts-sparkline.js"></script>
+
+    <!-- calendar JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/moment.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/fullcalendar.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/fullcalendar-active.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/Script/jsLayoutAfter/main.js"></script>
+
+</body>
+
+</html>

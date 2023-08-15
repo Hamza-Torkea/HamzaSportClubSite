@@ -1,0 +1,91 @@
+﻿@model IEnumerable<SportClubSite.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ViewPage.cshtml";
+}
+
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+
+@if (TempData["msg"]!= null)
+{
+    <div class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Success!</strong> @TempData["msg"]
+</div>
+}
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    a {
+        direction: ltr;
+        float: right;
+        font-size: larger;
+        margin-bottom: 10px;
+        padding-right: 20px;
+    }
+</style>
+<h2>Club Store</h2>
+<a class="btn btn-primary"  href="/ClubStore/Add">Add</a>
+<hr />
+<hr />
+<div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-10">
+        @if (TempData["total"] == null)
+        {
+
+            <h3>
+                Total Bill: 0 Ds
+            </h3>
+        }
+        else
+        {
+            <h3> Total Bill: @TempData["total"] Ds</h3>
+
+        }
+
+    </div>
+
+
+    <div class="col-lg-2 col-md-2 col-sm-2">
+        <h3 style="color:#808080; font-family:'Arial Rounded MT';text-align:center"> <span class="btn btn-info">@Html.ActionLink("Check Out", "checkout", "ClubStore")</span></h3>
+    </div>
+
+
+
+
+</div>
+
+<div class="row" style="margin-bottom:100px;">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-md-4" style="height:200px;margin-top:100px">
+
+                <img class="img img-responsive cimg" src="@Url.Content(item.Image)" style=" height:100%;width:100% ;border-radius:50px 50px 50px 50px" />
+                <h3 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.ProductName <small>@item.Price Ds</small></h3>
+               
+                <h4 style="text-align:center">
+                    <a class="btn btn-danger" href="@Url.Action("Edit", new { id = @item.ProductId })"><i class="fa">Edit</i></a>
+                </h4>
+                <h4 style="text-align:center">
+                    <a class="btn btn-primary" href="@Url.Action("Delete", new { id = @item.ProductId })"><i class="fa">Delete</i></a>
+                </h4>
+
+                 <h4 style="text-align:center">
+                    <a class="btn btn-success btn-sm" href="@Url.Action( "Adtocart", new { id = @item.ProductId })"><i class="fa" style="font-size:24px">&#xf07a;</i>Add To Cart</a> 
+                </h4>
+                               
+                
+
+            </div>
+
+        }
+    }
+</div>

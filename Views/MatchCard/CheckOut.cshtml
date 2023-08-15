@@ -1,0 +1,133 @@
+﻿
+@model IEnumerable<SportClubSite.Models.MatchCard>
+@{
+    ViewBag.Title = "checkout";
+}
+<link rel="icon" type="image/png" href="~/UserLogin/images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserLogin/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserLogin/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserLogin/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/UserLogin/css/util.css">
+<link rel="stylesheet" type="text/css" href="~/UserLogin/css/main.css">
+
+<h2>checkout</h2>
+<body class="images-cropper-pro" style="background-image: url(/image/h13.jpg)">
+    @if (TempData["card"] != null)
+    {
+
+
+        <table class="table table-responsive" style="color:white">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Home Team</th>
+                    <th>Away Team</th>
+                    <th>PRICE</th>
+                    <th>Studium</th>
+                    <th>KindOfCard</th>
+                    <th>ChairNumber</th>
+                    <th>BILL</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in TempData["card"] as List<SportClubSite.Models.Card>)
+                {
+
+                    <tr>
+                        <td>@item.MatchCardId</td>
+                        <td>@item.HomeTeam</td>
+                        <td>@item.AwayTeam</td>
+                        <td>@item.Price</td>
+                        <td>@item.Studium</td>
+                        <td>@item.KindOfCard</td>
+                        <td>@item.chairnumber</td>
+                        <td>@item.Bill</td>
+                        <td>
+                            <a class="btn btn-danger btn-sm" href="@Url.Action("remove", new { id=@item.MatchCardId})"> &#10008;</a>
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="7"></td>
+                    <td>@TempData["total"]</td>
+
+                </tr>
+            </tfoot>
+
+        </table>
+
+
+
+
+
+    }
+    else
+    {
+        <h2 style="color:red"> Cart is empty....</h2>
+        @Html.ActionLink("go Back", "Index", "MatchCard")
+    }
+
+    @if (TempData["card"] != null)
+    {
+        using (Html.BeginForm())
+        {
+            <input type="submit" value="Buy  " class="btn btn-primary" />
+        }
+    }
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <link href="~/CS/CssLayoutAfter/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+    <link href="~/CS/CssLayoutStart/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/CS/CssLayoutStart/mycss.css" rel="stylesheet" />
+    <script src="~/Script/jsLayoutAfter/jquery-1.11.3.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.charts-sparkline.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery-price-slider.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.meanmenu.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.scrollUp.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.sparkline.min.js"></script>
+    <script src="~/Script/jsLayoutAfter/jquery.sticky.js"></script>
+    <script src="~/Script/jsLayoutStart/jquery.easing.min.js"></script>
+    <script src="~/Script/jsLayoutStart/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.intellisense.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.13.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.13.min.js"></script>
+    <script src="~/Scripts/jquery-ui.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.ui.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.bootstrap.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
