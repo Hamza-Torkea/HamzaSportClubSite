@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4004afefbc794b85b08e652df9a82318" Name="Diagram1">
+        <EntityTypeShape EntityType="SportSiteModel.BookMatchCard" Width="1.5" PointX="8.25" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Cycle" Width="1.5" PointX="8.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Cycle1" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.CycleTable" Width="1.5" PointX="10.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Employee" Width="1.5" PointX="3.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Fan" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.invoice" Width="1.5" PointX="8.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Market" Width="1.5" PointX="5.875" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.MatchCard" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.MatchCardOrder" Width="1.5" PointX="10.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Match" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.MatchReport" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Name" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Order" Width="1.5" PointX="10.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Player" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.PlayerMarketMove" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.PredictMatchScore" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Product" Width="1.5" PointX="8.25" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Role" Width="1.5" PointX="8.25" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Roule" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Studium" Width="1.5" PointX="3" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.Team" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.TeamMangment" Width="1.5" PointX="7.875" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportSiteModel.User" Width="1.5" PointX="6" PointY="22.75" IsExpanded="true" />
+        <AssociationConnector Association="SportSiteModel.FK_BookMatchCard_User" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_MatchCardOrder_BookMatchCard" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Cycle_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Cycle_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_CycleTable_Cycle" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_CycleTable_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_TeamMangment_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Fans_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_invoice_User" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Order_invoice" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Market_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_MatchCard_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_MatchCardOrder_MatchCard" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_MatchCardOrder_User" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Matches_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Matches_Team1" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_MatchReport_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Order_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Player_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Role_User" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_Studium_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="SportSiteModel.FK_TeamMangment_Team" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
