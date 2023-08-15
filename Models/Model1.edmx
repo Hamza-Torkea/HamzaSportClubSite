@@ -1,0 +1,1710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SportSiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BookMatchCard">
+          <Key>
+            <PropertyRef Name="BookId" />
+          </Key>
+          <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="BookDate" Type="datetime" Nullable="false" />
+          <Property Name="totalbill" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cycle">
+          <Key>
+            <PropertyRef Name="Cycle_id" />
+          </Key>
+          <Property Name="Cycle_id" Type="int" Nullable="false" />
+          <Property Name="Match_id" Type="int" Nullable="false" />
+          <Property Name="Cycle_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="CycleInformation" Type="varchar(max)" Nullable="false" />
+          <Property Name="Team_id" Type="int" Nullable="false" />
+          <Property Name="TeamName" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cycle1">
+          <Key>
+            <PropertyRef Name="CycleId" />
+          </Key>
+          <Property Name="CycleId" Type="int" Nullable="false" />
+          <Property Name="CycleName" Type="varchar" MaxLength="50" />
+          <Property Name="HomeTeam" Type="varchar" MaxLength="50" />
+          <Property Name="AwayTeam" Type="varchar" MaxLength="50" />
+          <Property Name="Studim" Type="varchar" MaxLength="50" />
+          <Property Name="MatchTime" Type="datetime" />
+          <Property Name="CommenacatorSport" Type="varchar" MaxLength="50" />
+          <Property Name="cause" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CycleTable">
+          <Key>
+            <PropertyRef Name="CycleTable_id" />
+          </Key>
+          <Property Name="CycleTable_id" Type="int" Nullable="false" />
+          <Property Name="Cycle_id" Type="int" Nullable="false" />
+          <Property Name="Team_id" Type="int" Nullable="false" />
+          <Property Name="SortTeam" Type="int" Nullable="false" />
+          <Property Name="goals" Type="int" Nullable="false" />
+          <Property Name="Assest" Type="int" Nullable="false" />
+          <Property Name="YallowCard" Type="int" Nullable="false" />
+          <Property Name="RedCard" Type="int" Nullable="false" />
+          <Property Name="Differnce" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_id" />
+          </Key>
+          <Property Name="Employee_id" Type="int" Nullable="false" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Adress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Fans">
+          <Key>
+            <PropertyRef Name="Fans_id" />
+          </Key>
+          <Property Name="Fans_id" Type="int" Nullable="false" />
+          <Property Name="Team_id" Type="int" />
+          <Property Name="number" Type="int" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="in_id" />
+          </Key>
+          <Property Name="in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="in_user" Type="int" Nullable="false" />
+          <Property Name="invoiceDate" Type="datetime" Nullable="false" />
+          <Property Name="TotalBill" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Market">
+          <Key>
+            <PropertyRef Name="MarketId" />
+          </Key>
+          <Property Name="MarketId" Type="int" Nullable="false" />
+          <Property Name="TeamId" Type="int" Nullable="false" />
+          <Property Name="TeamSell" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Teambay" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PlayerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Condation" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MatchCard">
+          <Key>
+            <PropertyRef Name="MatchCard_id" />
+          </Key>
+          <Property Name="MatchCard_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Match_id" Type="int" Nullable="false" />
+          <Property Name="HomeTeam" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AwayTeam" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Studium" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="time" Type="datetime" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RankCard" Type="int" Nullable="false" />
+          <Property Name="KindOfCard" Type="varchar(max)" Nullable="false" />
+          <Property Name="ChairNumber" Type="int" Nullable="false" />
+          <Property Name="IsLocked" Type="bit" />
+        </EntityType>
+        <EntityType Name="MatchCardOrder">
+          <Key>
+            <PropertyRef Name="MOId" />
+          </Key>
+          <Property Name="MOId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchCardId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="BookMatchCardId" Type="int" Nullable="false" />
+          <Property Name="MatchOrderDate" Type="datetime" Nullable="false" />
+          <Property Name="Bill" Type="float" Nullable="false" />
+          <Property Name="UnitPrice" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Matches">
+          <Key>
+            <PropertyRef Name="Match_id" />
+          </Key>
+          <Property Name="Match_id" Type="int" Nullable="false" />
+          <Property Name="HomeTeam" Type="int" />
+          <Property Name="AwayTeam" Type="int" />
+          <Property Name="HomeGoals" Type="int" />
+          <Property Name="AwayGoals" Type="int" />
+          <Property Name="Timestamp" Type="datetime" />
+          <Property Name="HomeTeamImage" Type="nvarchar(max)" />
+          <Property Name="AwayTeamImage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MatchReport">
+          <Key>
+            <PropertyRef Name="MatchReport_id" />
+          </Key>
+          <Property Name="MatchReport_id" Type="int" Nullable="false" />
+          <Property Name="Match_id" Type="int" />
+          <Property Name="Content" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Name">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="in_id" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="bill" Type="float" Nullable="false" />
+          <Property Name="UnitPrice" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Player_id" />
+          </Key>
+          <Property Name="Player_id" Type="int" Nullable="false" />
+          <Property Name="Team_id" Type="int" />
+          <Property Name="TeamName" Type="varchar" MaxLength="50" />
+          <Property Name="PlayerName" Type="varchar(max)" />
+          <Property Name="Long" Type="float" />
+          <Property Name="Wieght" Type="float" />
+          <Property Name="Price" Type="float" />
+        </EntityType>
+        <EntityType Name="PlayerMarketMove">
+          <Key>
+            <PropertyRef Name="MarketMoveId" />
+          </Key>
+          <Property Name="MarketMoveId" Type="int" Nullable="false" />
+          <Property Name="playername" Type="varchar" MaxLength="50" />
+          <Property Name="oldTeam" Type="varchar" MaxLength="50" />
+          <Property Name="NewTeam" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="float" />
+          <Property Name="condation" Type="varchar" MaxLength="50" />
+          <Property Name="salary" Type="float" />
+          <Property Name="Awards" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PredictMatchScore">
+          <Key>
+            <PropertyRef Name="predict_id" />
+          </Key>
+          <Property Name="predict_id" Type="int" Nullable="false" />
+          <Property Name="HomeTeam" Type="varchar" MaxLength="50" />
+          <Property Name="AwayTeam" Type="varchar" MaxLength="50" />
+          <Property Name="Studium" Type="varchar" MaxLength="50" />
+          <Property Name="MatchTime" Type="varchar" MaxLength="50" />
+          <Property Name="Weather" Type="varchar" MaxLength="50" />
+          <Property Name="TotalPointHomeTeam" Type="int" />
+          <Property Name="TotalPointAwayTeam" Type="int" />
+          <Property Name="RankHomeTeam" Type="int" />
+          <Property Name="RankAwayTeam" Type="int" />
+          <Property Name="TeamWon" Type="nchar" MaxLength="10" />
+          <Property Name="FTHG" Type="int" />
+          <Property Name="FTAG" Type="int" />
+          <Property Name="HST" Type="int" />
+          <Property Name="AST" Type="int" />
+          <Property Name="HTGDIFF" Type="float" />
+          <Property Name="ATGDIFF" Type="float" />
+          <Property Name="powerofPlayer" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="quntity" Type="int" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roules">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Roule" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Studium">
+          <Key>
+            <PropertyRef Name="Studium_id" />
+          </Key>
+          <Property Name="Studium_id" Type="int" Nullable="false" />
+          <Property Name="Team_id" Type="int" />
+          <Property Name="Studium_name" Type="varchar(max)" />
+          <Property Name="capacity" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Team_id" />
+          </Key>
+          <Property Name="Team_id" Type="int" Nullable="false" />
+          <Property Name="TeamName" Type="varchar" MaxLength="50" />
+          <Property Name="HomeTeamImage" Type="nvarchar(max)" />
+          <Property Name="AwayTeamImage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TeamMangment">
+          <Key>
+            <PropertyRef Name="TeamMangment_id" />
+          </Key>
+          <Property Name="TeamMangment_id" Type="int" Nullable="false" />
+          <Property Name="Team_id" Type="int" />
+          <Property Name="Owner" Type="varchar" MaxLength="50" />
+          <Property Name="Coatch" Type="varchar" MaxLength="50" />
+          <Property Name="Employee_id" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar(max)" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BookMatchCard_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="BookMatchCard" Type="Self.BookMatchCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="BookMatchCard">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cycle_Match">
+          <End Role="Matches" Type="Self.Matches" Multiplicity="1" />
+          <End Role="Cycle" Type="Self.Cycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matches">
+              <PropertyRef Name="Match_id" />
+            </Principal>
+            <Dependent Role="Cycle">
+              <PropertyRef Name="Match_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cycle_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Cycle" Type="Self.Cycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Cycle">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CycleTable_Cycle">
+          <End Role="Cycle" Type="Self.Cycle" Multiplicity="1" />
+          <End Role="CycleTable" Type="Self.CycleTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cycle">
+              <PropertyRef Name="Cycle_id" />
+            </Principal>
+            <Dependent Role="CycleTable">
+              <PropertyRef Name="Cycle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CycleTable_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="CycleTable" Type="Self.CycleTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="CycleTable">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fans_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Fans" Type="Self.Fans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Fans">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="in_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Market_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Market" Type="Self.Market" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Market">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchCard_Match">
+          <End Role="Matches" Type="Self.Matches" Multiplicity="1" />
+          <End Role="MatchCard" Type="Self.MatchCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matches">
+              <PropertyRef Name="Match_id" />
+            </Principal>
+            <Dependent Role="MatchCard">
+              <PropertyRef Name="Match_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchCardOrder_BookMatchCard">
+          <End Role="BookMatchCard" Type="Self.BookMatchCard" Multiplicity="1" />
+          <End Role="MatchCardOrder" Type="Self.MatchCardOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookMatchCard">
+              <PropertyRef Name="BookId" />
+            </Principal>
+            <Dependent Role="MatchCardOrder">
+              <PropertyRef Name="BookMatchCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchCardOrder_MatchCard">
+          <End Role="MatchCard" Type="Self.MatchCard" Multiplicity="1" />
+          <End Role="MatchCardOrder" Type="Self.MatchCardOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchCard">
+              <PropertyRef Name="MatchCard_id" />
+            </Principal>
+            <Dependent Role="MatchCardOrder">
+              <PropertyRef Name="MatchCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchCardOrder_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="MatchCardOrder" Type="Self.MatchCardOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MatchCardOrder">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Matches_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Matches" Type="Self.Matches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Matches">
+              <PropertyRef Name="HomeTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Matches_Team1">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Matches" Type="Self.Matches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Matches">
+              <PropertyRef Name="AwayTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchReport_Match">
+          <End Role="Matches" Type="Self.Matches" Multiplicity="0..1" />
+          <End Role="MatchReport" Type="Self.MatchReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matches">
+              <PropertyRef Name="Match_id" />
+            </Principal>
+            <Dependent Role="MatchReport">
+              <PropertyRef Name="Match_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_invoice">
+          <End Role="invoice" Type="Self.invoice" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="invoice">
+              <PropertyRef Name="in_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Player_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Studium_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Studium" Type="Self.Studium" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Studium">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamMangment_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="TeamMangment" Type="Self.TeamMangment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="TeamMangment">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamMangment_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="TeamMangment" Type="Self.TeamMangment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="TeamMangment">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SportSiteModelStoreContainer">
+          <EntitySet Name="BookMatchCard" EntityType="Self.BookMatchCard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cycle" EntityType="Self.Cycle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cycle1" EntityType="Self.Cycle1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CycleTable" EntityType="Self.CycleTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fans" EntityType="Self.Fans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="invoice" EntityType="Self.invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Market" EntityType="Self.Market" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchCard" EntityType="Self.MatchCard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchCardOrder" EntityType="Self.MatchCardOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Matches" EntityType="Self.Matches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchReport" EntityType="Self.MatchReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Name" EntityType="Self.Name" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlayerMarketMove" EntityType="Self.PlayerMarketMove" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PredictMatchScore" EntityType="Self.PredictMatchScore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roules" EntityType="Self.Roules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Studium" EntityType="Self.Studium" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeamMangment" EntityType="Self.TeamMangment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BookMatchCard_User" Association="Self.FK_BookMatchCard_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BookMatchCard" EntitySet="BookMatchCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cycle_Match" Association="Self.FK_Cycle_Match">
+            <End Role="Matches" EntitySet="Matches" />
+            <End Role="Cycle" EntitySet="Cycle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cycle_Team" Association="Self.FK_Cycle_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Cycle" EntitySet="Cycle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CycleTable_Cycle" Association="Self.FK_CycleTable_Cycle">
+            <End Role="Cycle" EntitySet="Cycle" />
+            <End Role="CycleTable" EntitySet="CycleTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CycleTable_Team" Association="Self.FK_CycleTable_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="CycleTable" EntitySet="CycleTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fans_Team" Association="Self.FK_Fans_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Fans" EntitySet="Fans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_User" Association="Self.FK_invoice_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Market_Team" Association="Self.FK_Market_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Market" EntitySet="Market" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchCard_Match" Association="Self.FK_MatchCard_Match">
+            <End Role="Matches" EntitySet="Matches" />
+            <End Role="MatchCard" EntitySet="MatchCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchCardOrder_BookMatchCard" Association="Self.FK_MatchCardOrder_BookMatchCard">
+            <End Role="BookMatchCard" EntitySet="BookMatchCard" />
+            <End Role="MatchCardOrder" EntitySet="MatchCardOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchCardOrder_MatchCard" Association="Self.FK_MatchCardOrder_MatchCard">
+            <End Role="MatchCard" EntitySet="MatchCard" />
+            <End Role="MatchCardOrder" EntitySet="MatchCardOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchCardOrder_User" Association="Self.FK_MatchCardOrder_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="MatchCardOrder" EntitySet="MatchCardOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Matches_Team" Association="Self.FK_Matches_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Matches" EntitySet="Matches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Matches_Team1" Association="Self.FK_Matches_Team1">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Matches" EntitySet="Matches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchReport_Match" Association="Self.FK_MatchReport_Match">
+            <End Role="Matches" EntitySet="Matches" />
+            <End Role="MatchReport" EntitySet="MatchReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_invoice" Association="Self.FK_Order_invoice">
+            <End Role="invoice" EntitySet="invoice" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Player_Team" Association="Self.FK_Player_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_User" Association="Self.FK_Role_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Studium_Team" Association="Self.FK_Studium_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Studium" EntitySet="Studium" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamMangment_Employee" Association="Self.FK_TeamMangment_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="TeamMangment" EntitySet="TeamMangment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamMangment_Team" Association="Self.FK_TeamMangment_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamMangment" EntitySet="TeamMangment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SportSiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BookMatchCard">
+          <Key>
+            <PropertyRef Name="BookId" />
+          </Key>
+          <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="BookDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="totalbill" Type="Double" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_BookMatchCard_User" FromRole="BookMatchCard" ToRole="User" />
+          <NavigationProperty Name="MatchCardOrders" Relationship="Self.FK_MatchCardOrder_BookMatchCard" FromRole="BookMatchCard" ToRole="MatchCardOrder" />
+        </EntityType>
+        <EntityType Name="Cycle">
+          <Key>
+            <PropertyRef Name="Cycle_id" />
+          </Key>
+          <Property Name="Cycle_id" Type="Int32" Nullable="false" />
+          <Property Name="Match_id" Type="Int32" Nullable="false" />
+          <Property Name="Cycle_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CycleInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Team_id" Type="Int32" Nullable="false" />
+          <Property Name="TeamName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_Cycle_Match" FromRole="Cycle" ToRole="Matches" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_Cycle_Team" FromRole="Cycle" ToRole="Team" />
+          <NavigationProperty Name="CycleTables" Relationship="Self.FK_CycleTable_Cycle" FromRole="Cycle" ToRole="CycleTable" />
+        </EntityType>
+        <EntityType Name="Cycle1">
+          <Key>
+            <PropertyRef Name="CycleId" />
+          </Key>
+          <Property Name="CycleId" Type="Int32" Nullable="false" />
+          <Property Name="CycleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HomeTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AwayTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Studim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MatchTime" Type="DateTime" Precision="3" />
+          <Property Name="CommenacatorSport" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cause" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CycleTable">
+          <Key>
+            <PropertyRef Name="CycleTable_id" />
+          </Key>
+          <Property Name="CycleTable_id" Type="Int32" Nullable="false" />
+          <Property Name="Cycle_id" Type="Int32" Nullable="false" />
+          <Property Name="Team_id" Type="Int32" Nullable="false" />
+          <Property Name="SortTeam" Type="Int32" Nullable="false" />
+          <Property Name="goals" Type="Int32" Nullable="false" />
+          <Property Name="Assest" Type="Int32" Nullable="false" />
+          <Property Name="YallowCard" Type="Int32" Nullable="false" />
+          <Property Name="RedCard" Type="Int32" Nullable="false" />
+          <Property Name="Differnce" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cycle" Relationship="Self.FK_CycleTable_Cycle" FromRole="CycleTable" ToRole="Cycle" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_CycleTable_Team" FromRole="CycleTable" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_id" />
+          </Key>
+          <Property Name="Employee_id" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TeamMangments" Relationship="Self.FK_TeamMangment_Employee" FromRole="Employee" ToRole="TeamMangment" />
+        </EntityType>
+        <EntityType Name="Fan">
+          <Key>
+            <PropertyRef Name="Fans_id" />
+          </Key>
+          <Property Name="Fans_id" Type="Int32" Nullable="false" />
+          <Property Name="Team_id" Type="Int32" />
+          <Property Name="number" Type="Int32" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_Fans_Team" FromRole="Fans" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="in_id" />
+          </Key>
+          <Property Name="in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="in_user" Type="Int32" Nullable="false" />
+          <Property Name="invoiceDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TotalBill" Type="Double" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_invoice_User" FromRole="invoice" ToRole="User" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_invoice" FromRole="invoice" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Market">
+          <Key>
+            <PropertyRef Name="MarketId" />
+          </Key>
+          <Property Name="MarketId" Type="Int32" Nullable="false" />
+          <Property Name="TeamId" Type="Int32" Nullable="false" />
+          <Property Name="TeamSell" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teambay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PlayerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Condation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_Market_Team" FromRole="Market" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="MatchCard">
+          <Key>
+            <PropertyRef Name="MatchCard_id" />
+          </Key>
+          <Property Name="MatchCard_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Match_id" Type="Int32" Nullable="false" />
+          <Property Name="HomeTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AwayTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Studium" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RankCard" Type="Int32" Nullable="false" />
+          <Property Name="KindOfCard" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChairNumber" Type="Int32" Nullable="false" />
+          <Property Name="IsLocked" Type="Boolean" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_MatchCard_Match" FromRole="MatchCard" ToRole="Matches" />
+          <NavigationProperty Name="MatchCardOrders" Relationship="Self.FK_MatchCardOrder_MatchCard" FromRole="MatchCard" ToRole="MatchCardOrder" />
+        </EntityType>
+        <EntityType Name="MatchCardOrder">
+          <Key>
+            <PropertyRef Name="MOId" />
+          </Key>
+          <Property Name="MOId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchCardId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="BookMatchCardId" Type="Int32" Nullable="false" />
+          <Property Name="MatchOrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Bill" Type="Double" Nullable="false" />
+          <Property Name="UnitPrice" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BookMatchCard" Relationship="Self.FK_MatchCardOrder_BookMatchCard" FromRole="MatchCardOrder" ToRole="BookMatchCard" />
+          <NavigationProperty Name="MatchCard" Relationship="Self.FK_MatchCardOrder_MatchCard" FromRole="MatchCardOrder" ToRole="MatchCard" />
+          <NavigationProperty Name="User" Relationship="Self.FK_MatchCardOrder_User" FromRole="MatchCardOrder" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="Match_id" />
+          </Key>
+          <Property Name="Match_id" Type="Int32" Nullable="false" />
+          <Property Name="HomeTeam" Type="Int32" />
+          <Property Name="AwayTeam" Type="Int32" />
+          <Property Name="HomeGoals" Type="Int32" />
+          <Property Name="AwayGoals" Type="Int32" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="HomeTeamImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AwayTeamImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cycles" Relationship="Self.FK_Cycle_Match" FromRole="Matches" ToRole="Cycle" />
+          <NavigationProperty Name="MatchCards" Relationship="Self.FK_MatchCard_Match" FromRole="Matches" ToRole="MatchCard" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_Matches_Team" FromRole="Matches" ToRole="Team" />
+          <NavigationProperty Name="Team1" Relationship="Self.FK_Matches_Team1" FromRole="Matches" ToRole="Team" />
+          <NavigationProperty Name="MatchReports" Relationship="Self.FK_MatchReport_Match" FromRole="Matches" ToRole="MatchReport" />
+        </EntityType>
+        <EntityType Name="MatchReport">
+          <Key>
+            <PropertyRef Name="MatchReport_id" />
+          </Key>
+          <Property Name="MatchReport_id" Type="Int32" Nullable="false" />
+          <Property Name="Match_id" Type="Int32" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_MatchReport_Match" FromRole="MatchReport" ToRole="Matches" />
+        </EntityType>
+        <EntityType Name="Name">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="in_id" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="bill" Type="Double" Nullable="false" />
+          <Property Name="UnitPrice" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="invoice" Relationship="Self.FK_Order_invoice" FromRole="Order" ToRole="invoice" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product" FromRole="Order" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Player_id" />
+          </Key>
+          <Property Name="Player_id" Type="Int32" Nullable="false" />
+          <Property Name="Team_id" Type="Int32" />
+          <Property Name="TeamName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PlayerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Long" Type="Double" />
+          <Property Name="Wieght" Type="Double" />
+          <Property Name="Price" Type="Double" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_Player_Team" FromRole="Player" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="PlayerMarketMove">
+          <Key>
+            <PropertyRef Name="MarketMoveId" />
+          </Key>
+          <Property Name="MarketMoveId" Type="Int32" Nullable="false" />
+          <Property Name="playername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="oldTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NewTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="condation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="salary" Type="Double" />
+          <Property Name="Awards" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PredictMatchScore">
+          <Key>
+            <PropertyRef Name="predict_id" />
+          </Key>
+          <Property Name="predict_id" Type="Int32" Nullable="false" />
+          <Property Name="HomeTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AwayTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Studium" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MatchTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Weather" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalPointHomeTeam" Type="Int32" />
+          <Property Name="TotalPointAwayTeam" Type="Int32" />
+          <Property Name="RankHomeTeam" Type="Int32" />
+          <Property Name="RankAwayTeam" Type="Int32" />
+          <Property Name="TeamWon" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FTHG" Type="Int32" />
+          <Property Name="FTAG" Type="Int32" />
+          <Property Name="HST" Type="Int32" />
+          <Property Name="AST" Type="Int32" />
+          <Property Name="HTGDIFF" Type="Double" />
+          <Property Name="ATGDIFF" Type="Double" />
+          <Property Name="powerofPlayer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="quntity" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Product" FromRole="Product" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Role1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Role_User" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Roule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Roule1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Studium">
+          <Key>
+            <PropertyRef Name="Studium_id" />
+          </Key>
+          <Property Name="Studium_id" Type="Int32" Nullable="false" />
+          <Property Name="Team_id" Type="Int32" />
+          <Property Name="Studium_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="capacity" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_Studium_Team" FromRole="Studium" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Team_id" />
+          </Key>
+          <Property Name="Team_id" Type="Int32" Nullable="false" />
+          <Property Name="TeamName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HomeTeamImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AwayTeamImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cycles" Relationship="Self.FK_Cycle_Team" FromRole="Team" ToRole="Cycle" />
+          <NavigationProperty Name="CycleTables" Relationship="Self.FK_CycleTable_Team" FromRole="Team" ToRole="CycleTable" />
+          <NavigationProperty Name="Fans" Relationship="Self.FK_Fans_Team" FromRole="Team" ToRole="Fans" />
+          <NavigationProperty Name="Markets" Relationship="Self.FK_Market_Team" FromRole="Team" ToRole="Market" />
+          <NavigationProperty Name="Matches" Relationship="Self.FK_Matches_Team" FromRole="Team" ToRole="Matches" />
+          <NavigationProperty Name="Matches1" Relationship="Self.FK_Matches_Team1" FromRole="Team" ToRole="Matches" />
+          <NavigationProperty Name="Players" Relationship="Self.FK_Player_Team" FromRole="Team" ToRole="Player" />
+          <NavigationProperty Name="Studiums" Relationship="Self.FK_Studium_Team" FromRole="Team" ToRole="Studium" />
+          <NavigationProperty Name="TeamMangments" Relationship="Self.FK_TeamMangment_Team" FromRole="Team" ToRole="TeamMangment" />
+        </EntityType>
+        <EntityType Name="TeamMangment">
+          <Key>
+            <PropertyRef Name="TeamMangment_id" />
+          </Key>
+          <Property Name="TeamMangment_id" Type="Int32" Nullable="false" />
+          <Property Name="Team_id" Type="Int32" />
+          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Coatch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_id" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_TeamMangment_Employee" FromRole="TeamMangment" ToRole="Employee" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_TeamMangment_Team" FromRole="TeamMangment" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BookMatchCards" Relationship="Self.FK_BookMatchCard_User" FromRole="User" ToRole="BookMatchCard" />
+          <NavigationProperty Name="invoices" Relationship="Self.FK_invoice_User" FromRole="User" ToRole="invoice" />
+          <NavigationProperty Name="MatchCardOrders" Relationship="Self.FK_MatchCardOrder_User" FromRole="User" ToRole="MatchCardOrder" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK_Role_User" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_BookMatchCard_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="BookMatchCard" Type="Self.BookMatchCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="BookMatchCard">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchCardOrder_BookMatchCard">
+          <End Role="BookMatchCard" Type="Self.BookMatchCard" Multiplicity="1" />
+          <End Role="MatchCardOrder" Type="Self.MatchCardOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookMatchCard">
+              <PropertyRef Name="BookId" />
+            </Principal>
+            <Dependent Role="MatchCardOrder">
+              <PropertyRef Name="BookMatchCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cycle_Match">
+          <End Role="Matches" Type="Self.Match" Multiplicity="1" />
+          <End Role="Cycle" Type="Self.Cycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matches">
+              <PropertyRef Name="Match_id" />
+            </Principal>
+            <Dependent Role="Cycle">
+              <PropertyRef Name="Match_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cycle_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Cycle" Type="Self.Cycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Cycle">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CycleTable_Cycle">
+          <End Role="Cycle" Type="Self.Cycle" Multiplicity="1" />
+          <End Role="CycleTable" Type="Self.CycleTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cycle">
+              <PropertyRef Name="Cycle_id" />
+            </Principal>
+            <Dependent Role="CycleTable">
+              <PropertyRef Name="Cycle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CycleTable_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="CycleTable" Type="Self.CycleTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="CycleTable">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamMangment_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="TeamMangment" Type="Self.TeamMangment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_id" />
+            </Principal>
+            <Dependent Role="TeamMangment">
+              <PropertyRef Name="Employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fans_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Fans" Type="Self.Fan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Fans">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="in_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_invoice">
+          <End Role="invoice" Type="Self.invoice" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="invoice">
+              <PropertyRef Name="in_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Market_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Market" Type="Self.Market" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Market">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchCard_Match">
+          <End Role="Matches" Type="Self.Match" Multiplicity="1" />
+          <End Role="MatchCard" Type="Self.MatchCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matches">
+              <PropertyRef Name="Match_id" />
+            </Principal>
+            <Dependent Role="MatchCard">
+              <PropertyRef Name="Match_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchCardOrder_MatchCard">
+          <End Role="MatchCard" Type="Self.MatchCard" Multiplicity="1" />
+          <End Role="MatchCardOrder" Type="Self.MatchCardOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchCard">
+              <PropertyRef Name="MatchCard_id" />
+            </Principal>
+            <Dependent Role="MatchCardOrder">
+              <PropertyRef Name="MatchCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchCardOrder_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="MatchCardOrder" Type="Self.MatchCardOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MatchCardOrder">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Matches_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Matches" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Matches">
+              <PropertyRef Name="HomeTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Matches_Team1">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Matches" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Matches">
+              <PropertyRef Name="AwayTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchReport_Match">
+          <End Role="Matches" Type="Self.Match" Multiplicity="0..1" />
+          <End Role="MatchReport" Type="Self.MatchReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matches">
+              <PropertyRef Name="Match_id" />
+            </Principal>
+            <Dependent Role="MatchReport">
+              <PropertyRef Name="Match_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Player_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Studium_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Studium" Type="Self.Studium" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="Studium">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamMangment_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="TeamMangment" Type="Self.TeamMangment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_id" />
+            </Principal>
+            <Dependent Role="TeamMangment">
+              <PropertyRef Name="Team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SportSiteEntities40" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BookMatchCards" EntityType="Self.BookMatchCard" />
+          <EntitySet Name="Cycles" EntityType="Self.Cycle" />
+          <EntitySet Name="Cycle1" EntityType="Self.Cycle1" />
+          <EntitySet Name="CycleTables" EntityType="Self.CycleTable" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Fans" EntityType="Self.Fan" />
+          <EntitySet Name="invoices" EntityType="Self.invoice" />
+          <EntitySet Name="Markets" EntityType="Self.Market" />
+          <EntitySet Name="MatchCards" EntityType="Self.MatchCard" />
+          <EntitySet Name="MatchCardOrders" EntityType="Self.MatchCardOrder" />
+          <EntitySet Name="Matches" EntityType="Self.Match" />
+          <EntitySet Name="MatchReports" EntityType="Self.MatchReport" />
+          <EntitySet Name="Names" EntityType="Self.Name" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Players" EntityType="Self.Player" />
+          <EntitySet Name="PlayerMarketMoves" EntityType="Self.PlayerMarketMove" />
+          <EntitySet Name="PredictMatchScores" EntityType="Self.PredictMatchScore" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Roules" EntityType="Self.Roule" />
+          <EntitySet Name="Studiums" EntityType="Self.Studium" />
+          <EntitySet Name="Teams" EntityType="Self.Team" />
+          <EntitySet Name="TeamMangments" EntityType="Self.TeamMangment" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_BookMatchCard_User" Association="Self.FK_BookMatchCard_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="BookMatchCard" EntitySet="BookMatchCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchCardOrder_BookMatchCard" Association="Self.FK_MatchCardOrder_BookMatchCard">
+            <End Role="BookMatchCard" EntitySet="BookMatchCards" />
+            <End Role="MatchCardOrder" EntitySet="MatchCardOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cycle_Match" Association="Self.FK_Cycle_Match">
+            <End Role="Matches" EntitySet="Matches" />
+            <End Role="Cycle" EntitySet="Cycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cycle_Team" Association="Self.FK_Cycle_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Cycle" EntitySet="Cycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CycleTable_Cycle" Association="Self.FK_CycleTable_Cycle">
+            <End Role="Cycle" EntitySet="Cycles" />
+            <End Role="CycleTable" EntitySet="CycleTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CycleTable_Team" Association="Self.FK_CycleTable_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="CycleTable" EntitySet="CycleTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamMangment_Employee" Association="Self.FK_TeamMangment_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="TeamMangment" EntitySet="TeamMangments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fans_Team" Association="Self.FK_Fans_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Fans" EntitySet="Fans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_User" Association="Self.FK_invoice_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="invoice" EntitySet="invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_invoice" Association="Self.FK_Order_invoice">
+            <End Role="invoice" EntitySet="invoices" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Market_Team" Association="Self.FK_Market_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Market" EntitySet="Markets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchCard_Match" Association="Self.FK_MatchCard_Match">
+            <End Role="Matches" EntitySet="Matches" />
+            <End Role="MatchCard" EntitySet="MatchCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchCardOrder_MatchCard" Association="Self.FK_MatchCardOrder_MatchCard">
+            <End Role="MatchCard" EntitySet="MatchCards" />
+            <End Role="MatchCardOrder" EntitySet="MatchCardOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchCardOrder_User" Association="Self.FK_MatchCardOrder_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="MatchCardOrder" EntitySet="MatchCardOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Matches_Team" Association="Self.FK_Matches_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Matches" EntitySet="Matches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Matches_Team1" Association="Self.FK_Matches_Team1">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Matches" EntitySet="Matches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchReport_Match" Association="Self.FK_MatchReport_Match">
+            <End Role="Matches" EntitySet="Matches" />
+            <End Role="MatchReport" EntitySet="MatchReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Player_Team" Association="Self.FK_Player_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Player" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_User" Association="Self.FK_Role_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Studium_Team" Association="Self.FK_Studium_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Studium" EntitySet="Studiums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamMangment_Team" Association="Self.FK_TeamMangment_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="TeamMangment" EntitySet="TeamMangments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SportSiteModelStoreContainer" CdmEntityContainer="SportSiteEntities40">
+          <EntitySetMapping Name="BookMatchCards">
+            <EntityTypeMapping TypeName="SportSiteModel.BookMatchCard">
+              <MappingFragment StoreEntitySet="BookMatchCard">
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BookDate" ColumnName="BookDate" />
+                <ScalarProperty Name="totalbill" ColumnName="totalbill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cycles">
+            <EntityTypeMapping TypeName="SportSiteModel.Cycle">
+              <MappingFragment StoreEntitySet="Cycle">
+                <ScalarProperty Name="Cycle_id" ColumnName="Cycle_id" />
+                <ScalarProperty Name="Match_id" ColumnName="Match_id" />
+                <ScalarProperty Name="Cycle_name" ColumnName="Cycle_name" />
+                <ScalarProperty Name="CycleInformation" ColumnName="CycleInformation" />
+                <ScalarProperty Name="Team_id" ColumnName="Team_id" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cycle1">
+            <EntityTypeMapping TypeName="SportSiteModel.Cycle1">
+              <MappingFragment StoreEntitySet="Cycle1">
+                <ScalarProperty Name="CycleId" ColumnName="CycleId" />
+                <ScalarProperty Name="CycleName" ColumnName="CycleName" />
+                <ScalarProperty Name="HomeTeam" ColumnName="HomeTeam" />
+                <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
+                <ScalarProperty Name="Studim" ColumnName="Studim" />
+                <ScalarProperty Name="MatchTime" ColumnName="MatchTime" />
+                <ScalarProperty Name="CommenacatorSport" ColumnName="CommenacatorSport" />
+                <ScalarProperty Name="cause" ColumnName="cause" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CycleTables">
+            <EntityTypeMapping TypeName="SportSiteModel.CycleTable">
+              <MappingFragment StoreEntitySet="CycleTable">
+                <ScalarProperty Name="CycleTable_id" ColumnName="CycleTable_id" />
+                <ScalarProperty Name="Cycle_id" ColumnName="Cycle_id" />
+                <ScalarProperty Name="Team_id" ColumnName="Team_id" />
+                <ScalarProperty Name="SortTeam" ColumnName="SortTeam" />
+                <ScalarProperty Name="goals" ColumnName="goals" />
+                <ScalarProperty Name="Assest" ColumnName="Assest" />
+                <ScalarProperty Name="YallowCard" ColumnName="YallowCard" />
+                <ScalarProperty Name="RedCard" ColumnName="RedCard" />
+                <ScalarProperty Name="Differnce" ColumnName="Differnce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="SportSiteModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fans">
+            <EntityTypeMapping TypeName="SportSiteModel.Fan">
+              <MappingFragment StoreEntitySet="Fans">
+                <ScalarProperty Name="Fans_id" ColumnName="Fans_id" />
+                <ScalarProperty Name="Team_id" ColumnName="Team_id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="country" ColumnName="country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="invoices">
+            <EntityTypeMapping TypeName="SportSiteModel.invoice">
+              <MappingFragment StoreEntitySet="invoice">
+                <ScalarProperty Name="in_id" ColumnName="in_id" />
+                <ScalarProperty Name="in_user" ColumnName="in_user" />
+                <ScalarProperty Name="invoiceDate" ColumnName="invoiceDate" />
+                <ScalarProperty Name="TotalBill" ColumnName="TotalBill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Markets">
+            <EntityTypeMapping TypeName="SportSiteModel.Market">
+              <MappingFragment StoreEntitySet="Market">
+                <ScalarProperty Name="MarketId" ColumnName="MarketId" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="TeamSell" ColumnName="TeamSell" />
+                <ScalarProperty Name="Teambay" ColumnName="Teambay" />
+                <ScalarProperty Name="PlayerName" ColumnName="PlayerName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Condation" ColumnName="Condation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchCards">
+            <EntityTypeMapping TypeName="SportSiteModel.MatchCard">
+              <MappingFragment StoreEntitySet="MatchCard">
+                <ScalarProperty Name="MatchCard_id" ColumnName="MatchCard_id" />
+                <ScalarProperty Name="Match_id" ColumnName="Match_id" />
+                <ScalarProperty Name="HomeTeam" ColumnName="HomeTeam" />
+                <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
+                <ScalarProperty Name="Studium" ColumnName="Studium" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="RankCard" ColumnName="RankCard" />
+                <ScalarProperty Name="KindOfCard" ColumnName="KindOfCard" />
+                <ScalarProperty Name="ChairNumber" ColumnName="ChairNumber" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchCardOrders">
+            <EntityTypeMapping TypeName="SportSiteModel.MatchCardOrder">
+              <MappingFragment StoreEntitySet="MatchCardOrder">
+                <ScalarProperty Name="MOId" ColumnName="MOId" />
+                <ScalarProperty Name="MatchCardId" ColumnName="MatchCardId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BookMatchCardId" ColumnName="BookMatchCardId" />
+                <ScalarProperty Name="MatchOrderDate" ColumnName="MatchOrderDate" />
+                <ScalarProperty Name="Bill" ColumnName="Bill" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Matches">
+            <EntityTypeMapping TypeName="SportSiteModel.Match">
+              <MappingFragment StoreEntitySet="Matches">
+                <ScalarProperty Name="Match_id" ColumnName="Match_id" />
+                <ScalarProperty Name="HomeTeam" ColumnName="HomeTeam" />
+                <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
+                <ScalarProperty Name="HomeGoals" ColumnName="HomeGoals" />
+                <ScalarProperty Name="AwayGoals" ColumnName="AwayGoals" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="HomeTeamImage" ColumnName="HomeTeamImage" />
+                <ScalarProperty Name="AwayTeamImage" ColumnName="AwayTeamImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchReports">
+            <EntityTypeMapping TypeName="SportSiteModel.MatchReport">
+              <MappingFragment StoreEntitySet="MatchReport">
+                <ScalarProperty Name="MatchReport_id" ColumnName="MatchReport_id" />
+                <ScalarProperty Name="Match_id" ColumnName="Match_id" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Names">
+            <EntityTypeMapping TypeName="SportSiteModel.Name">
+              <MappingFragment StoreEntitySet="Name">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name1" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="SportSiteModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="in_id" ColumnName="in_id" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="bill" ColumnName="bill" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="SportSiteModel.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="Player_id" ColumnName="Player_id" />
+                <ScalarProperty Name="Team_id" ColumnName="Team_id" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="PlayerName" ColumnName="PlayerName" />
+                <ScalarProperty Name="Long" ColumnName="Long" />
+                <ScalarProperty Name="Wieght" ColumnName="Wieght" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayerMarketMoves">
+            <EntityTypeMapping TypeName="SportSiteModel.PlayerMarketMove">
+              <MappingFragment StoreEntitySet="PlayerMarketMove">
+                <ScalarProperty Name="MarketMoveId" ColumnName="MarketMoveId" />
+                <ScalarProperty Name="playername" ColumnName="playername" />
+                <ScalarProperty Name="oldTeam" ColumnName="oldTeam" />
+                <ScalarProperty Name="NewTeam" ColumnName="NewTeam" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="condation" ColumnName="condation" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="Awards" ColumnName="Awards" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PredictMatchScores">
+            <EntityTypeMapping TypeName="SportSiteModel.PredictMatchScore">
+              <MappingFragment StoreEntitySet="PredictMatchScore">
+                <ScalarProperty Name="predict_id" ColumnName="predict_id" />
+                <ScalarProperty Name="HomeTeam" ColumnName="HomeTeam" />
+                <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
+                <ScalarProperty Name="Studium" ColumnName="Studium" />
+                <ScalarProperty Name="MatchTime" ColumnName="MatchTime" />
+                <ScalarProperty Name="Weather" ColumnName="Weather" />
+                <ScalarProperty Name="TotalPointHomeTeam" ColumnName="TotalPointHomeTeam" />
+                <ScalarProperty Name="TotalPointAwayTeam" ColumnName="TotalPointAwayTeam" />
+                <ScalarProperty Name="RankHomeTeam" ColumnName="RankHomeTeam" />
+                <ScalarProperty Name="RankAwayTeam" ColumnName="RankAwayTeam" />
+                <ScalarProperty Name="TeamWon" ColumnName="TeamWon" />
+                <ScalarProperty Name="FTHG" ColumnName="FTHG" />
+                <ScalarProperty Name="FTAG" ColumnName="FTAG" />
+                <ScalarProperty Name="HST" ColumnName="HST" />
+                <ScalarProperty Name="AST" ColumnName="AST" />
+                <ScalarProperty Name="HTGDIFF" ColumnName="HTGDIFF" />
+                <ScalarProperty Name="ATGDIFF" ColumnName="ATGDIFF" />
+                <ScalarProperty Name="powerofPlayer" ColumnName="powerofPlayer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="SportSiteModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="quntity" ColumnName="quntity" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="SportSiteModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Role1" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roules">
+            <EntityTypeMapping TypeName="SportSiteModel.Roule">
+              <MappingFragment StoreEntitySet="Roules">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Roule1" ColumnName="Roule" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Studiums">
+            <EntityTypeMapping TypeName="SportSiteModel.Studium">
+              <MappingFragment StoreEntitySet="Studium">
+                <ScalarProperty Name="Studium_id" ColumnName="Studium_id" />
+                <ScalarProperty Name="Team_id" ColumnName="Team_id" />
+                <ScalarProperty Name="Studium_name" ColumnName="Studium_name" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="SportSiteModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="Team_id" ColumnName="Team_id" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="HomeTeamImage" ColumnName="HomeTeamImage" />
+                <ScalarProperty Name="AwayTeamImage" ColumnName="AwayTeamImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamMangments">
+            <EntityTypeMapping TypeName="SportSiteModel.TeamMangment">
+              <MappingFragment StoreEntitySet="TeamMangment">
+                <ScalarProperty Name="TeamMangment_id" ColumnName="TeamMangment_id" />
+                <ScalarProperty Name="Team_id" ColumnName="Team_id" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Coatch" ColumnName="Coatch" />
+                <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SportSiteModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
