@@ -1,0 +1,16 @@
+.mycssnavbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+  }
+  .mycssnavbar-fixed-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    max-height: 340px;
+  }
+  @media (max-device-width: 480px) and (orientation: landscape) {
+    .mycssnavbar-fixed-top .navbar-collapse,
+    .navbar-fixed-bottom .navbar-collapse {
+      max-height: 200px;
+    }
+  }

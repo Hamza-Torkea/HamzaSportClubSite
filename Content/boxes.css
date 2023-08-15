@@ -1,0 +1,47 @@
+﻿.clearFix 
+{
+    clear:  both;   
+}
+
+.col 
+{
+    float:  left;   
+    padding: 0;
+    margin: 0;
+}
+
+
+.col10 {    width:      10%;   }
+.col15 {    width:      15%;   }
+.col20 {    width:      20%;   }
+.col25 {    width:      25%;   }
+.col30 {    width:      30%;   }
+.col33 {    width:      33%;   }
+.col34 {    width:      33%;margin-left: 0.5%;margin-right: 0.5%;   }
+.col40 {    width:      40%;   }
+.col45 {    width:      45%;   }
+.col50 {    width:      50%;   }
+.col60 {    width:      60%;   }
+.col66 {    width:      66%;   }
+.col67 {    width:      67%;   }
+.col70 {    width:      70%;   }
+.col75 {    width:      75%;   }
+.col80 {    width:      80%;   }
+.col85 {    width:      85%;   }
+.col90 {    width:      90%;   }
+.col100 {    width:      100%;   }
+
+.col-contents-right 
+{
+    text-align:right;
+}
+
+.col-contents-left 
+{
+    text-align:left;
+}
+
+
+.col-contents-center {
+    text-align:center;
+}
